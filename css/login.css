@@ -1,7 +1,6 @@
 h1.logo-text {
 	font-weight: lighter;
 	letter-spacing: 0.5rem;
-	font-size: 3rem;
 }
 
 header {
@@ -14,4 +13,30 @@ header {
 
 .logo-text #icare {
 	background-color: var(--light-blue);
+}
+
+main {
+	margin: 0 auto;
+	max-width: 40rem;
+}
+
+.greeting {
+	padding: 0.5rem 0;
+}
+
+.greeting-sub {
+	padding: 0.5rem 0;
+	font-size: 0.8rem;
+}
+
+form {
+	margin: 2rem 0;
+}
+
+.field {
+	padding: 1r;
+}
+
+.field input {
+	padding: 1rem;
 }
