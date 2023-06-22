@@ -1,0 +1,17 @@
+h1.logo-text {
+	font-weight: lighter;
+	letter-spacing: 0.5rem;
+	font-size: 3rem;
+}
+
+header {
+	padding: 3rem 0 3rem 3rem;
+}
+
+.logo-text #med {
+	background-color: var(--blue);
+}
+
+.logo-text #icare {
+	background-color: var(--light-blue);
+}
