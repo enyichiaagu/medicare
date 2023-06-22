@@ -16,18 +16,37 @@
 		</header>
 		<main>
 			<h2 class="greeting">Welcome Back!</h2>
-			<p class="greeting-sub">Sign in, Let's get Started</p>
+			<p class="greeting-sub">Sign in, Let's get started</p>
 			<form>
 				<div class="field">
-					<input type="email" name="" id="email" />
+					<span class="material-symbols-outlined start-icon"
+						>account_circle</span
+					>
+					<input
+						type="email"
+						name=""
+						id="email"
+						placeholder="Staff Email"
+					/>
 				</div>
 				<div class="field">
-					<input type="email" name="" id="" />
+					<span class="material-symbols-outlined start-icon"
+						>key</span
+					>
+					<input
+						type="password"
+						name=""
+						id="password"
+						placeholder="Password"
+					/>
+					<span class="material-symbols-outlined" id="visibility"
+						>visibility</span
+					>
 				</div>
-				<div>
-					<a href="">Forgot Password?</a>
+				<div class="forgot-password">
+					<a href="/forgot-password">Forgot Password?</a>
 				</div>
-				<button type="submit">Sign in</button>
+				<button id="submit" type="button">Sign in</button>
 			</form>
 		</main>
 	</body>
