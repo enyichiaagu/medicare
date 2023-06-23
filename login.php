@@ -1,3 +1,20 @@
+<?php
+	session_start();
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$email = $_POST['staff-email'];
+		$password = $_POST['password'];
+		$_SESSION['loggedIn'] = $email === 'enyichiaagu@gmail.com' && $password === 'admin';
+		if ($_SESSION['loggedIn']) {
+			header('Location: ./');
+			exit;
+		}
+	} else if (isset($_SESSION['loggedIn'])) {
+		header('Location: ./');
+		exit;
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -17,14 +34,16 @@
 		<main>
 			<h2 class="greeting">Welcome Back!</h2>
 			<p class="greeting-sub">Sign in, Let's get started</p>
-			<form>
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 				<div class="field">
 					<span class="material-symbols-outlined start-icon"
 						>account_circle</span
 					>
 					<input
+						required
 						type="email"
-						name=""
+						name="staff-email"
+						autocomplete="email"
 						id="email"
 						placeholder="Staff Email"
 					/>
@@ -34,8 +53,10 @@
 						>key</span
 					>
 					<input
+						required
 						type="password"
-						name=""
+						name="password"
+						autocomplete="off"
 						id="password"
 						placeholder="Password"
 					/>
@@ -46,7 +67,7 @@
 				<div class="forgot-password">
 					<a href="/forgot-password">Forgot Password?</a>
 				</div>
-				<button id="submit" type="button">Sign in</button>
+				<button id="submit" type="submit">Sign in</button>
 			</form>
 		</main>
 	</body>

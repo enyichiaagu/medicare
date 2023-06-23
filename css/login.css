@@ -57,6 +57,18 @@ main {
 	background-color: inherit;
 }
 
+.field input:autofill {
+	background-color: inherit;
+}
+
+.field input#password {
+	letter-spacing: 0.5rem;
+}
+
+.field input#password::placeholder {
+	letter-spacing: normal;
+}
+
 .field input:placeholder-shown,
 .field input:placeholder-shown + #visibility {
 	background-color: var(--light-grey);
@@ -93,6 +105,10 @@ main {
 .forgot-password a {
 	color: var(--blue);
 	text-decoration: none;
+}
+
+.forgot-password a:hover {
+	color: var(--darker-blue);
 }
 
 button#submit {
