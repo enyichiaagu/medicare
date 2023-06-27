@@ -1,27 +1,16 @@
--- USE testdb
--- CREATE TABLE Staff(
--- 	STAFF_ID VARCHAR NOT NULL,
---     FULL_NAME VARCHAR,
---     GENDER VARCHAR,
---     DATE_OF_BIRTH DATE,
---     EMAIL VARCHAR,
---     PASSWORD VARCHAR,
---     PHONE_NUMBER VARCHAR,
---     POSITION VARCHAR,
---     SPECIALTY VARCHAR,
---     UNIT VARCHAR,
---     UNIQUE (STAFF_ID),
---     PRIMARY KEY (STAFF_ID)
--- )
-
--- CREATE TABLE Patients (
--- 		CUSTOMER_ID INT not null,
--- 		NAME VARCHAR,
--- 		DATE_OF_BIRTH DATE,
--- 		EMAIL VARCHAR,
--- 		GENDER VARCHAR,
--- 		GENOTYPE VARCHAR,
--- 		blood group varchar(255),
--- 		ALLERGIES varchar(255)
--- 		primary key (CUSTOMER_ID)
--- 	);
+CREATE TABLE patients(
+    id INT PRIMARY KEY,
+    patient_id VARCHAR(20) NOT NULL,
+    full_name VARCHAR(125) NOT NULL,
+    gender CHAR(30) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    phone_no VARCHAR(125) NOT NULL,
+    residential_address VARCHAR(255) NOT NULL,
+    email_address VARCHAR(255) NOT NULL,
+    next_of_kin_name VARCHAR(255) NOT NULL,
+    next_of_kin_no VARCHAR(125) NOT NULL,
+    existing_medical_conditions VARCHAR(255),
+    allergies VARCHAR(255),
+    blood_group CHAR(10),
+    genotype CHAR(10)
+);
