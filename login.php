@@ -1,15 +1,27 @@
 <?php
+	// Grab session variables using this function
 	session_start();
 
+	// Check if the page loaded because of a post request
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+		// Grab the user's email and password
 		$email = $_POST['staff-email'];
 		$password = $_POST['password'];
-		$_SESSION['loggedIn'] = $email === 'enyichiaagu@gmail.com' && $password === 'admin';
-		if ($_SESSION['loggedIn']) {
+
+		// Verify if they match the correct values and set session variable isLoggedIn based on the input
+		$_SESSION['isLoggedIn'] = $email === 'enyichiaagu@gmail.com' && $password === 'admin';
+
+		// Check if isLoggedIn is true
+		if ($_SESSION['isLoggedIn']) {
+
+			// Redirect the user to home page and exit
 			header('Location: ./');
 			exit;
 		}
-	} else if (isset($_SESSION['loggedIn'])) {
+	
+	// Else make sure user cannot arrive at this page anymore
+	} else if (isset($_SESSION['isLoggedIn'])) {
 		header('Location: ./');
 		exit;
 	}

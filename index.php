@@ -1,12 +1,18 @@
 <?php 
+	// Grabbing session variables, initializing $_SESSION
 	session_start();
 
+	// Check if user posted a logout request
 	if (isset($_POST['logout'])) {
+
+		// Unset and destroy the session, then redirect to login page
 		session_unset();
 		session_destroy();
 		header('Location: login.php');
 		exit;
-	} else if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
+
+	// Make sure user cannot load the page unless logged in
+	} else if (!$_SESSION['isLoggedIn']) {
 		header('Location: ./login.php');
 		exit;
 	}
@@ -22,7 +28,7 @@
 	<body>
 		<h1>Congratulations! Website under construction!!</h1>
 		<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="submit" name="logout" value="Logout">
+			<input type="submit" name="logout" value="logout">
 		</form>
 	</body>
 </html>
