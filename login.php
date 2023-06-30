@@ -69,12 +69,10 @@
 						type="password"
 						name="password"
 						autocomplete="off"
-						id="password"
+						id="password-input"
 						placeholder="Password"
 					/>
-					<span class="material-symbols-outlined" id="visibility"
-						>visibility</span
-					>
+					<span class="material-symbols-outlined" id="visibility">visibility</span>
 				</div>
 				<div class="forgot-password">
 					<a href="/forgot-password">Forgot Password?</a>
@@ -82,5 +80,8 @@
 				<button id="submit" type="submit">Sign in</button>
 			</form>
 		</main>
+
+		<!-- Importing JavaScript file -->
+		<script src="js/login.js"></script>
 	</body>
 </html>

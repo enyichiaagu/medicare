@@ -14,3 +14,17 @@ CREATE TABLE patients(
     blood_group CHAR(10),
     genotype CHAR(10)
 );
+
+CREATE TABLE staff(
+	id INT PRIMARY KEY,
+    staff_id VARCHAR(20) NOT NULL,
+    full_name VARCHAR(125) NOT NULL,
+    gender CHAR(30) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    email_address VARCHAR(255) NOT NULL,
+    staff_password VARCHAR(125) NOT NULL,
+    phone_no VARCHAR(125) NOT NULL,
+    position VARCHAR(125) NOT NULL,
+    unit VARCHAR(125) NOT NULL,
+    specialty VARCHAR(125)
+);

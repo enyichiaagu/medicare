@@ -5,9 +5,11 @@
 	// Check if user posted a logout request
 	if (isset($_POST['logout'])) {
 
-		// Unset and destroy the session, then redirect to login page
+		// Unset and destroy the session 
 		session_unset();
 		session_destroy();
+
+		// Redirect to login page
 		header('Location: login.php');
 		exit;
 

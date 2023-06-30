@@ -91,11 +91,6 @@ main {
 	font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;
 }
 
-#visibility {
-	padding: 0 1rem;
-	background-color: inherit;
-}
-
 .forgot-password {
 	text-align: right;
 	margin-bottom: 1rem;
