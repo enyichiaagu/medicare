@@ -31,6 +31,9 @@
 		<title>Medicare Dashboard</title>
 	</head>
 	<body>
-		<?php require_once('./header.php'); ?>
+		<?php require_once('./components/header.php'); ?>
+		<div>
+			<?php require_once('./components/sidebar.php') ?>
+		</div>
 	</body>
 </html>
