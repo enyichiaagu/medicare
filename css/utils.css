@@ -8,10 +8,11 @@
 	--grey: #817e7e;
 	--black: #0c0e10;
 	--white: #fffbfb;
+	--secondary-font: 'Times New Roman';
 }
 
 * {
-	/* border: 1px solid red; */
+	border: 1px solid red;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -34,4 +35,22 @@ h3 {
 
 h4 {
 	font-size: 1.3rem;
+}
+
+h1.logo-text {
+	font-weight: lighter;
+	letter-spacing: 0.5rem;
+}
+
+.logo-text #med {
+	background-color: var(--blue);
+}
+
+.logo-text #icare {
+	background-color: var(--light-grey);
+}
+
+.secondary-text {
+	font-family: var(--secondary-font);
+	letter-spacing: 1px;
 }

@@ -1,0 +1,26 @@
+h1 span {
+	font-size: inherit;
+}
+
+header {
+	padding: 0.7rem 2rem;
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--black);
+}
+
+header .material-symbols-outlined {
+	font-size: 2rem;
+	color: var(--white);
+}
+
+header .header-align-center {
+	display: flex;
+	align-items: center;
+}
+
+.header-align-center .staff-name {
+	margin-left: 1rem;
+	color: var(--white);
+	font-family: var(--secondary-font);
+}
