@@ -32,8 +32,6 @@
 	</head>
 	<body>
 		<?php require_once('./components/header.php'); ?>
-		<div>
-			<?php require_once('./components/sidebar.php') ?>
-		</div>
+		<?php require_once('./components/sidebar.php') ?>
 	</body>
 </html>

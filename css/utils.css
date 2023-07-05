@@ -3,7 +3,9 @@
 
 :root {
 	--blue: #3446e3;
-	--darker-blue: #192279;
+	--bg-blue: #192279;
+	--darker-blue: #131e64;
+	--highlight-blue: #0b113a;
 	--light-grey: #e9ecef;
 	--grey: #817e7e;
 	--black: #0c0e10;

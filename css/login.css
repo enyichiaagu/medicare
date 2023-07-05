@@ -89,7 +89,7 @@ main {
 }
 
 .forgot-password a:hover {
-	color: var(--darker-blue);
+	color: var(--bg-blue);
 }
 
 button#submit {

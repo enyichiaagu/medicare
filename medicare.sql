@@ -28,3 +28,6 @@ CREATE TABLE staff(
     unit VARCHAR(125) NOT NULL,
     specialty VARCHAR(125)
 );
+
+-- INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty)
+--     VALUES(1, '64a5691cec267', 'Gabriel jessica', 'female', 2002-03-27, 'gabrielj121@yahoo.com', 12341234, 'dietician', 'nutrition and dietetics', 'dietician')
