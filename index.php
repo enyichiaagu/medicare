@@ -31,7 +31,12 @@
 		<title>Medicare Dashboard</title>
 	</head>
 	<body>
+
+		<!-- PHP Imports -->
 		<?php require_once('./components/header.php'); ?>
 		<?php require_once('./components/sidebar.php') ?>
+	
+		<!-- JavaScript Imports -->
+		<script src="./js/sidebar.js"></script>
 	</body>
 </html>

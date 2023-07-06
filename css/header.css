@@ -6,6 +6,9 @@ header {
 	padding: 0.7rem 2rem;
 	display: flex;
 	justify-content: space-between;
+	position: fixed;
+	width: 100%;
+	top: 0;
 	background-color: var(--black);
 }
 

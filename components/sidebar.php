@@ -40,12 +40,12 @@
             "iconText" => "biotech"
         ],
         [
-            "name" => "Bursary",
-            "iconText" => "payments"
-        ],
-        [
             "name" => "Ward",
             "iconText" => "ward"
+        ],
+        [
+            "name" => "Bursary",
+            "iconText" => "payments"
         ],
         [
             "name" => "Other Staff",
@@ -58,42 +58,45 @@
 ?>
 <aside>
     <div class="menu-options">
+        <div class="list-container">
+            <nav>
+                <ul class="navigation">
+                    <!-- Looping through every item in the menu -->
+                    <?php array_map(function($item) { ?>
 
-        <ul class="navigation">
-            <!-- Looping through every item in the menu -->
-            <?php array_map(function($item) { ?>
+                        <li>
+                            <div class="option-display">
 
-                <li>
-                    <div class="option-display">
+                                <!-- Display the icon text -->
+                                <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
+                                
+                                <!-- Display the name of the option -->
+                                <?= $item["name"] ?>
 
-                        <!-- Display the icon text -->
-                        <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
-                        
-                        <!-- Display the name of the option -->
-                        <?= $item["name"] ?>
+                                <!-- Checking if there is any sub menu -->
+                                <?php if (isset($item["sub-menu"])) { ?>
+                                    <span class="material-symbols-outlined down-arrow">arrow_drop_down</span>
+                                <?php } ?>
 
-                        <!-- Checking if there is any sub menu -->
-                        <?php if (isset($item["sub-menu"])) { ?>
-                            <span class="material-symbols-outlined down-arrow">arrow_drop_down</span>
-                        <?php } ?>
+                            </div>
 
-                    </div>
+                            <?php if (isset($item["sub-menu"])) { ?>
+                                <ul class="sub-menu-items">
+                                    <!-- Looping through available sub menu -->
+                                    <?php array_map(function($subMenu){ ?>
+                                        <li><?= $subMenu ?></li>
+                                    <?php }, $item["sub-menu"]) ?>
 
-                    <?php if (isset($item["sub-menu"])) { ?>
-                        <ul class="sub-menu-items">
-                            <!-- Looping through available sub menu -->
-                            <?php array_map(function($subMenu){ ?>
-                                <li><?= $subMenu ?></li>
-                            <?php }, $item["sub-menu"]) ?>
-
-                        </ul>
-                        <!-- Closing if Statement -->
-                    <?php } ?>
-                </li>
-            
-            <!-- Closing menu options loop -->
-            <?php }, $menuItems); ?>
-        </ul>
+                                </ul>
+                                <!-- Closing if Statement -->
+                            <?php } ?>
+                        </li>
+                    
+                    <!-- Closing menu options loop -->
+                    <?php }, $menuItems); ?>
+                </ul>
+            </nav>
+        </div>
         
         <div class="footer">
             <span class="material-symbols-outlined">logout</span>
