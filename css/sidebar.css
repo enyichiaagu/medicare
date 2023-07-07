@@ -3,7 +3,7 @@ aside * {
 }
 
 aside {
-	width: 20rem;
+	width: 16rem;
 	background-color: var(--bg-blue);
 }
 
@@ -49,7 +49,7 @@ aside ul.navigation > li {
 	flex-direction: column;
 }
 
-aside ul.navigation > li:hover {
+aside ul.navigation > li .option-display:hover {
 	background-color: var(--black);
 }
 
@@ -74,17 +74,21 @@ aside ul.navigation > li span.down-arrow {
 
 aside ul.sub-menu-items {
 	background-color: var(--darker-blue);
-	height: 0;
+	max-height: 0;
 	overflow-y: hidden;
+	transition: max-height 200ms ease-in;
 }
 
 aside ul.sub-menu-open {
 	height: fit-content;
+	max-height: 9rem;
 }
 
 aside ul.sub-menu-items li {
 	list-style: none;
 	padding: 0.8rem 0 0.8rem 4rem;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
 }
 
 aside ul.sub-menu-items li:hover {
