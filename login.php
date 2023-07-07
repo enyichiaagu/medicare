@@ -16,13 +16,13 @@
 		if ($_SESSION['isLoggedIn']) {
 
 			// Redirect the user to home page and exit
-			header('Location: ./');
+			header('Location: ./overview.php');
 			exit;
 		}
 	
 	// Else make sure user cannot arrive at this page anymore
 	} else if (isset($_SESSION['isLoggedIn'])) {
-		header('Location: ./');
+		header('Location: ./overview.php');
 		exit;
 	}
 ?>
@@ -35,7 +35,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/utils.css" />
 		<link rel="stylesheet" href="./css/login.css" />
-		<title>Medicare</title>
+		<title>Medicare Login</title>
 	</head>
 	<body>
 		<header>

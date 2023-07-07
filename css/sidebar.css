@@ -2,8 +2,9 @@ aside * {
 	color: var(--white);
 }
 
-aside {
+aside.sidebar {
 	width: 16rem;
+	transition: width 200ms ease-in;
 	background-color: var(--bg-blue);
 }
 
@@ -11,6 +12,18 @@ aside .menu-options {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
+	position: fixed;
+	width: inherit;
+	background-color: inherit;
+}
+
+aside.close-sidebar {
+	width: 0;
+}
+
+aside.close-sidebar .menu-options {
+	position: static;
+	width: 100%;
 }
 
 aside div.list-container {
@@ -21,7 +34,7 @@ aside div.list-container {
 
 aside div.list-container nav {
 	height: 100%;
-	overflow-y: scroll;
+	overflow-y: auto;
 	padding-bottom: 10vh;
 }
 
@@ -49,7 +62,8 @@ aside ul.navigation > li {
 	flex-direction: column;
 }
 
-aside ul.navigation > li .option-display:hover {
+aside ul.navigation > li .option-display:hover,
+aside ul.navigation > li .active-link {
 	background-color: var(--black);
 }
 
@@ -96,9 +110,19 @@ aside ul.sub-menu-items li:hover {
 }
 
 .footer {
+	background-color: var(--bg-blue);
+}
+
+.footer button {
 	display: flex;
 	align-items: center;
+	width: 100%;
 	padding: 1rem 0;
+	border: none;
 	border-top: 1px solid var(--blue);
-	background-color: var(--bg-blue);
+	background-color: transparent;
+}
+
+.footer:hover {
+	background-color: var(--darker-blue);
 }

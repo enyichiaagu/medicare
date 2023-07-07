@@ -4,7 +4,8 @@
     $menuItems = [
         [
             "name" => "Overview",
-            "iconText" => "dashboard"
+            "iconText" => "dashboard",
+            "url" => "overview"
         ],
         [
             "name" => "Appointments",
@@ -33,7 +34,8 @@
         ],
         [
             "name" => "Pharmacy",
-            "iconText" => "medication"
+            "iconText" => "medication",
+            "url" => "pharmacy"
         ],
         [
             "name" => "Laboratory",
@@ -51,12 +53,14 @@
             "name" => "Other Staff",
             "iconText" => "diversity_3"
         ]
-
-
     ];
 
+    function isCurrentPage($url) {
+        return '/medicare/' . $url . '.php' === $_SERVER['REQUEST_URI'];
+    }
+
 ?>
-<aside>
+<aside class="sidebar">
     <div class="menu-options">
         <div class="list-container">
             <nav>
@@ -65,8 +69,7 @@
                     <?php array_map(function($item) { ?>
 
                         <li>
-                            <div class="option-display">
-
+                            <div class="option-display <?= isset($item["url"]) && isCurrentPage($item["url"]) ? 'active-link': '' ?>">
                                 <!-- Display the icon text -->
                                 <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
                                 
@@ -98,10 +101,12 @@
             </nav>
         </div>
         
-        <div class="footer">
-            <span class="material-symbols-outlined">logout</span>
-            Logout
-        </div>
+        <form class="footer" method="POST" action="./overview.php">
+            <button type="submit" name="logout" value="Logout">
+                <span class="material-symbols-outlined">logout</span>
+                Logout
+            </button>
+        </form>
 
     </div>
 </aside>

@@ -1,24 +1,33 @@
-<?php 
-	// Grabbing session variables, initializing $_SESSION
-	// session_start();
+<?php
+	// Redirect to overview if user navigates to '/'
+	$prefix = '/medicare/';
+	if ($_SERVER['REQUEST_URI'] === $prefix . 'index.php' || $_SERVER['REQUEST_URI'] === $prefix) {
+		header('Location: ./overview.php');
+		exit;
+	}
 
-	// Check if user posted a logout request
-	// if (isset($_POST['logout'])) {
+	function generatePageHead($pageTitle) {
+		// Grabbing session variables, initializing $_SESSION
+		session_start();
 
-		// Unset and destroy the session 
-		// session_unset();
-		// session_destroy();
+		// Check if user posted a logout request
+		if (isset($_POST['logout'])) {
 
-		// Redirect to login page
-		// header('Location: login.php');
-		// exit;
+			// Unset and destroy the session 
+			session_unset();
+			session_destroy();
 
-	// Make sure user cannot load the page unless logged in
-	// } else if (!$_SESSION['isLoggedIn']) {
-	// 	header('Location: ./login.php');
-	// 	exit;
-	// }
+			// Redirect to login page
+			header('Location: ./login.php');
+			exit;
+
+		// Make sure user cannot load the page unless logged in
+		} else if (!$_SESSION['isLoggedIn']) {
+			header('Location: ./login.php');
+			exit;
+		}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -28,15 +37,31 @@
 		<link rel="stylesheet" href="./css/utils.css">
 		<link rel="stylesheet" href="./css/header.css">
 		<link rel="stylesheet" href="./css/sidebar.css">
-		<title>Medicare Dashboard</title>
+		<?= '<title>Medicare - '.$pageTitle.' </title>' ?>
 	</head>
 	<body>
 
-		<!-- PHP Imports -->
+		<!-- Import Header -->
 		<?php require_once('./components/header.php'); ?>
-		<?php require_once('./components/sidebar.php') ?>
+
+		<!-- Define Layout of body -->
+		<div class="body-layout">
+
+			<!-- Add Sidebar -->
+			<?php require_once('./components/sidebar.php') ?>
+
+			<!-- Add Requested Page -->
+			<main class="main-content">
+<?php } ?>
+
+
+<?php function generatePageFoot() { ?>
+			</main>
+		</div>
 	
 		<!-- JavaScript Imports -->
+		<script src="./js/header.js"></script>
 		<script src="./js/sidebar.js"></script>
 	</body>
-</html>
+</html> 
+<?php } ?>

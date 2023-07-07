@@ -14,7 +14,7 @@
 }
 
 * {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -55,4 +55,12 @@ h1.logo-text {
 .secondary-text {
 	font-family: var(--secondary-font);
 	letter-spacing: 1px;
+}
+
+.body-layout {
+	display: flex;
+}
+
+main.main-content {
+	padding-top: 10vh;
 }
