@@ -1,7 +1,7 @@
 <header>
     <div class="header-align-center close-button">
         <span class="material-symbols-outlined">
-            dock_to_right
+            menu
         </span>
     </div>
     <div>

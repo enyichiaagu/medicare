@@ -39,7 +39,8 @@
         ],
         [
             "name" => "Laboratory",
-            "iconText" => "biotech"
+            "iconText" => "biotech",
+            "url" => "laboratory"
         ],
         [
             "name" => "Ward",
