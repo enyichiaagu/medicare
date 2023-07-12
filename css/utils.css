@@ -64,3 +64,8 @@ h1.logo-text {
 main.main-content {
   padding-top: 10vh;
 }
+
+span.material-symbols-outlined {
+  cursor: default;
+  user-select: none;
+}
