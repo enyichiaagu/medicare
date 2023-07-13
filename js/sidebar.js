@@ -11,7 +11,9 @@ dropDownsToArray.forEach((element, index) => {
 })
 
 function toggleSubMenu(currentTarget, index) {
-	currentTarget.nextElementSibling.classList.toggle('sub-menu-open')
+	currentTarget.parentElement.nextElementSibling.classList.toggle(
+		'sub-menu-open'
+	)
 	dropDownIcons[index].textContent =
 		dropDownIcons[index].textContent === 'arrow_drop_down'
 			? 'arrow_drop_up'

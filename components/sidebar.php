@@ -10,26 +10,50 @@
         [
             "name" => "Appointments",
             "iconText" => "calendar_month",
+            "url" => "appointments",
             "sub-menu" => [
-                "Create New Appointment",
-                "Find Appointment"
+                [
+                    "title" => "Create New Appointment",
+                    "url" => "create-appointment"
+                ],
+                [
+                    "title" => "Find Appointment",
+                    "url" => "list-appointments"
+                ]
             ]
         ],
         [
             "name" => "Patients",
             "iconText" => "person",
+            "url" => "patients",
             "sub-menu" => [
-                "Add New Patient",
-                "Find Patient",
-                "Take Vital Signs"
+                [
+                    "title" => "Add New Patient",
+                    "url" => "add-patient"
+                ],
+                [
+                    "title" => "Find Patient",
+                    "url" => "list-patients"
+                ],
+                [
+                    "title" => "Take Vital Signs",
+                    "url" => "vital-signs"
+                ]
             ]
         ],
         [
             "name" => "Doctors",
             "iconText" => "stethoscope",
+            "url" => "doctors",
             "sub-menu" => [
-                "List Appointments",
-                "List Available Doctors"
+                [
+                    "title" => "List Appointments",
+                    "url" => "list-appointments"
+                ],
+                [
+                    "title" => "List Available Doctors",
+                    "url" => "list-doctors"
+                ]
             ]
         ],
         [
@@ -44,15 +68,18 @@
         ],
         [
             "name" => "Ward",
-            "iconText" => "ward"
+            "iconText" => "ward",
+            "url" => "ward"
         ],
         [
             "name" => "Bursary",
-            "iconText" => "payments"
+            "iconText" => "payments",
+            "url" => "bursary"
         ],
         [
             "name" => "Other Staff",
-            "iconText" => "diversity_3"
+            "iconText" => "diversity_3",
+            "url" => "staff"
         ]
     ];
 
@@ -70,25 +97,32 @@
                     <?php array_map(function($item) { ?>
 
                         <li>
-                            <div class="option-display <?= isset($item["url"]) && isCurrentPage($item["url"]) ? 'active-link': '' ?>">
-                                <!-- Display the icon text -->
-                                <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
-                                
-                                <!-- Display the name of the option -->
-                                <?= $item["name"] ?>
+                            <a href="<?= isset($item["sub-menu"]) ? '#' : $item["url"].'.php' ?>">
+                                <div class="option-display <?= isset($item["url"]) && isCurrentPage($item["url"]) ? 'active-link': '' ?>">
+                                    
+                                    <!-- Display the icon text -->
+                                    <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
+                                    
+                                    <!-- Display the name of the option -->
+                                    <?= $item["name"] ?>
 
-                                <!-- Checking if there is any sub menu -->
-                                <?php if (isset($item["sub-menu"])) { ?>
-                                    <span class="material-symbols-outlined down-arrow">arrow_drop_down</span>
-                                <?php } ?>
+                                    <!-- Checking if there is any sub menu -->
+                                    <?php if (isset($item["sub-menu"])) { ?>
+                                        <span class="material-symbols-outlined down-arrow">arrow_drop_down</span>
+                                    <?php } ?>
 
-                            </div>
+                                </div>
+                            </a>
 
                             <?php if (isset($item["sub-menu"])) { ?>
                                 <ul class="sub-menu-items">
-                                    <!-- Looping through available sub menu -->
-                                    <?php array_map(function($subMenu){ ?>
-                                        <li><?= $subMenu ?></li>
+                                    <!-- Looping through available submenu -->
+                                    <?php array_map(function($subMenu) use ($item) { ?>
+                                        <li>
+                                            <a href="<?= $item["url"].'/'.$subMenu["url"].'.php' ?>">
+                                                <?= $subMenu["title"] ?>
+                                            </a>
+                                        </li>
                                     <?php }, $item["sub-menu"]) ?>
 
                                 </ul>
