@@ -1,5 +1,4 @@
 <?php
-
     // Creating an array with the menu list and sub lists
     $menuItems = [
         [
@@ -87,6 +86,10 @@
         return '/medicare/' . $url . '.php' === $_SERVER['REQUEST_URI'];
     }
 
+    function isCurrentSubPage($folder, $url) {
+        return '/medicare/' . $folder . '/' . $url . '.php' === $_SERVER['REQUEST_URI'];
+    }
+
 ?>
 <aside class="sidebar">
     <div class="menu-options">
@@ -94,10 +97,11 @@
             <nav>
                 <ul class="navigation">
                     <!-- Looping through every item in the menu -->
-                    <?php array_map(function($item) { ?>
+                    <!-- $path comes from index.php -->
+                    <?php array_map(function($item) use ($path) { ?>
 
                         <li>
-                            <a href="<?= isset($item["sub-menu"]) ? '#' : $item["url"].'.php' ?>">
+                            <a href="<?= isset($item["sub-menu"]) ? '#' : $path.'/'.$item["url"].'.php' ?>">
                                 <div class="option-display <?= isset($item["url"]) && isCurrentPage($item["url"]) ? 'active-link': '' ?>">
                                     
                                     <!-- Display the icon text -->
@@ -117,12 +121,18 @@
                             <?php if (isset($item["sub-menu"])) { ?>
                                 <ul class="sub-menu-items">
                                     <!-- Looping through available submenu -->
-                                    <?php array_map(function($subMenu) use ($item) { ?>
-                                        <li>
-                                            <a href="<?= $item["url"].'/'.$subMenu["url"].'.php' ?>">
+                                    <?php array_map(function($subMenu) use ($item, $path) { ?>
+
+                                        <li class="<?= isCurrentSubPage($item["url"], $subMenu["url"]) ? 'active-sub-link' : '' ?>">
+
+                                            <a href="<?= $path.'/'.$item["url"].'/'.$subMenu["url"].'.php' ?>">
+
                                                 <?= $subMenu["title"] ?>
+
                                             </a>
+
                                         </li>
+
                                     <?php }, $item["sub-menu"]) ?>
 
                                 </ul>

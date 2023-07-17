@@ -109,7 +109,8 @@ aside ul.sub-menu-items li a {
 	letter-spacing: 1px;
 }
 
-aside ul.sub-menu-items li:hover {
+aside ul.sub-menu-items li:hover,
+li.active-sub-link {
 	background-color: var(--highlight-blue);
 }
 

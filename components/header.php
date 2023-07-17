@@ -11,6 +11,6 @@
         <span class="material-symbols-outlined">
             account_circle
         </span>
-        <span class="staff-name secondary-text">Dr. Duodeh Simi</span>
+        <span class="staff-name secondary-text">Jessica Gabriel</span>
     </div>
 </header>
