@@ -123,7 +123,14 @@
 
                                     <!-- Checking if there is any sub menu -->
                                     <?php if (isset($item["sub-menu"])) { ?>
-                                        <span class="material-symbols-outlined down-arrow">arrow_drop_down</span>
+                                        <span 
+                                            class="material-symbols-outlined down-arrow">
+                                                <?= 
+                                                    isCurrentSet($item["url"]) ? 
+                                                    'arrow_drop_up' : 
+                                                    'arrow_drop_down' 
+                                                ?>
+                                        </span>
                                     <?php } ?>
 
                                 </div>
@@ -134,7 +141,7 @@
                                     <!-- Looping through available submenu -->
                                     <?php array_map(function($subMenu) use ($item, $path) { ?>
 
-                                        <li class="<?= isCurrentSubPage($item["url"], $subMenu["url"]) ? 'active-sub-link' : '' ?>">
+                                        <li <?= isCurrentSubPage($item["url"], $subMenu["url"]) ? 'class="active-sub-link"' : '' ?>>
 
                                             <a href="<?= $path.'/'.$item["url"].'/'.$subMenu["url"].'.php' ?>">
 
@@ -157,7 +164,7 @@
             </nav>
         </div>
         
-        <form class="footer" method="POST" action="./overview.php">
+        <form class="footer" method="POST" action="<?= $path . '/overview.php' ?>">
             <button type="submit" name="logout" value="Logout">
                 <span class="material-symbols-outlined">logout</span>
                 Logout

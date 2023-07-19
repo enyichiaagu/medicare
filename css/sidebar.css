@@ -96,6 +96,7 @@ aside ul.sub-menu-items {
 aside ul.sub-menu-open {
 	height: fit-content;
 	max-height: 9rem;
+	overflow-x: hidden;
 }
 
 aside ul.sub-menu-items li {

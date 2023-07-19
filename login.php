@@ -35,7 +35,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/utils.css" />
 		<link rel="stylesheet" href="./css/login.css" />
-		<title>Medicare Login</title>
+		<title>Medicare - Login</title>
 	</head>
 	<body>
 		<header>
@@ -75,7 +75,7 @@
 					<span class="material-symbols-outlined" id="visibility">visibility</span>
 				</div>
 				<div class="forgot-password">
-					<a href="/forgot-password">Forgot Password?</a>
+					<a href="forgot-password.php">Forgot Password?</a>
 				</div>
 				<button id="submit" type="submit">Sign in</button>
 			</form>
