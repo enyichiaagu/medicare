@@ -90,6 +90,10 @@
         return '/medicare/' . $folder . '/' . $url . '.php' === $_SERVER['REQUEST_URI'];
     }
 
+    function isCurrentSet($folder) {
+        return $folder === explode('/', $_SERVER['REQUEST_URI'])[2];
+    }
+
 ?>
 <aside class="sidebar">
     <div class="menu-options">
@@ -102,7 +106,14 @@
 
                         <li>
                             <a href="<?= isset($item["sub-menu"]) ? '#' : $path.'/'.$item["url"].'.php' ?>">
-                                <div class="option-display <?= isset($item["url"]) && isCurrentPage($item["url"]) ? 'active-link': '' ?>">
+                                <div 
+                                    class="option-display 
+                                    <?= 
+                                        (isCurrentPage($item["url"]) || isCurrentSet($item["url"])) ? 
+                                        'active-link': 
+                                        '' 
+                                    ?>"
+                                >
                                     
                                     <!-- Display the icon text -->
                                     <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
@@ -119,7 +130,7 @@
                             </a>
 
                             <?php if (isset($item["sub-menu"])) { ?>
-                                <ul class="sub-menu-items">
+                                <ul class="sub-menu-items <?= isCurrentSet($item["url"]) ? 'sub-menu-open' : '' ?>">
                                     <!-- Looping through available submenu -->
                                     <?php array_map(function($subMenu) use ($item, $path) { ?>
 
