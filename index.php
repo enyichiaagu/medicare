@@ -44,6 +44,7 @@
 		<link rel="stylesheet" href="<?= $path ?>/css/utils.css">
 		<link rel="stylesheet" href="<?= $path ?>/css/header.css">
 		<link rel="stylesheet" href="<?= $path ?>/css/sidebar.css">
+		<link rel="stylesheet" href="<?= $path ?>/patients/add-patient.css">
 		<title>Medicare - <?= $pageTitle ?> </title>
 	</head>
 	<body>
