@@ -2,28 +2,45 @@
 	// Grab session variables using this function
 	session_start();
 
+	// Establish database credentials
+	$hostname = 'localhost';
+	$db_username = 'root';
+	$db_password = '';
+	$database = 'medicare';
+
+	function redirectUser() {
+		header('Location: ./dashboard/overview.php');
+		exit;
+	}
+
 	// Check if the page loaded because of a post request
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+		// Connect to the database
+		$mysqli = new mysqli($hostname, $db_username, $db_password, $database);
 
 		// Grab the user's email and password
 		$email = $_POST['staff-email'];
 		$password = $_POST['password'];
 
-		// Verify if they match the correct values and set session variable isLoggedIn based on the input
-		$_SESSION['isLoggedIn'] = $email === 'enyichiaagu@gmail.com' && $password === 'admin';
+		// Verify for correct username and password
+		$query = "SELECT * FROM staff WHERE email_address='$email'";
+		$result = $mysqli->query($query);
+		
+		// Check if any row came back
+		if ($result->num_rows === 1) {
+			$user = $result->fetch_assoc();
 
-		// Check if isLoggedIn is true
-		if ($_SESSION['isLoggedIn']) {
-
-			// Redirect the user to home page and exit
-			header('Location: ./overview.php');
-			exit;
+			// Check password for match
+			if (password_verify($password, $user['staff_password'])) {
+				$_SESSION['isLoggedIn'] = true;
+				redirectUser();
+			}
 		}
-	
+
 	// Else make sure user cannot arrive at this page anymore
 	} else if (isset($_SESSION['isLoggedIn'])) {
-		header('Location: ./overview.php');
-		exit;
+		redirectUser();
 	}
 ?>
 
@@ -71,6 +88,7 @@
 						autocomplete="off"
 						id="password-input"
 						placeholder="Password"
+						minlength="5"
 					/>
 					<span class="material-symbols-outlined" id="visibility">visibility</span>
 				</div>
@@ -80,7 +98,6 @@
 				<button id="submit" type="submit">Sign in</button>
 			</form>
 		</main>
-
 		<!-- Importing JavaScript file -->
 		<script src="js/login.js"></script>
 	</body>

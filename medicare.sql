@@ -16,7 +16,7 @@ CREATE TABLE patients(
 );
 
 CREATE TABLE staff(
-	id INT PRIMARY KEY,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     staff_id VARCHAR(20) NOT NULL,
     full_name VARCHAR(125) NOT NULL,
     gender CHAR(30) NOT NULL,
@@ -29,5 +29,5 @@ CREATE TABLE staff(
     specialty VARCHAR(125)
 );
 
--- INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty)
---     VALUES(1, '64a5691cec267', 'Gabriel jessica', 'female', 2002-03-27, 'gabrielj121@yahoo.com', 12341234, 'dietician', 'nutrition and dietetics', 'dietician')
+INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty)
+    VALUES(null, '64a5691cec267', 'Jessica Gabriel', 'female', '2002-03-27', 'jessica@medicare.com', '$2y$10$01IMTmJxf9k5zNVTveIsrOcfjGrU8Jq/lVLQu0VZTxL5pUjEMo4TS', '+234901292233701', 'Receptionist', 'opd', null)
