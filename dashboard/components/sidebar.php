@@ -83,15 +83,15 @@
     ];
 
     function isCurrentPage($url) {
-        return '/medicare/' . $url . '.php' === $_SERVER['REQUEST_URI'];
+        return '/medicare/dashboard/' . $url . '.php' === $_SERVER['REQUEST_URI'];
     }
 
     function isCurrentSubPage($folder, $url) {
-        return '/medicare/' . $folder . '/' . $url . '.php' === $_SERVER['REQUEST_URI'];
+        return '/medicare/dashboard/' . $folder . '/' . $url . '.php' === $_SERVER['REQUEST_URI'];
     }
 
     function isCurrentSet($folder) {
-        return $folder === explode('/', $_SERVER['REQUEST_URI'])[2];
+        return $folder === explode('/', $_SERVER['REQUEST_URI'])[3];
     }
 
 ?>

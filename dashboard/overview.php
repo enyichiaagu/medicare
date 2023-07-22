@@ -1,9 +1,9 @@
-<?php require_once('index.php') ?>
+<?php require_once('../index.php') ?>
 
 <?= generatePageHead('Overview') ?>
 
 <h1>
-    <?= relativePath() ?>
+    <?= count(explode('/', $_SERVER['PHP_SELF'])) ?>
 </h1>
 
 <?= generatePageFoot() ?>

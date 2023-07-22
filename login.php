@@ -1,4 +1,5 @@
 <?php
+
 	// Grab session variables using this function
 	session_start();
 
@@ -33,9 +34,18 @@
 
 			// Check password for match
 			if (password_verify($password, $user['staff_password'])) {
+
+				// Set Session variables for correct user
 				$_SESSION['isLoggedIn'] = true;
+				$_SESSION['user'] = $user;
+
+				// Redirect the user
 				redirectUser();
+			} else {
+				printf('Email or Password is incorrect!');
 			}
+		} else {
+			printf('Email or Password is incorrect!');
 		}
 
 	// Else make sure user cannot arrive at this page anymore
