@@ -108,7 +108,7 @@
                             <a href="<?= isset($item["sub-menu"]) ? '#' : $path.'/'.$item["url"].'.php' ?>">
                                 <div 
                                     class="option-display 
-                                    <?= 
+                                    <?php echo 
                                         (isCurrentPage($item["url"]) || isCurrentSet($item["url"])) ? 
                                         'active-link': 
                                         '' 
@@ -124,12 +124,7 @@
                                     <!-- Checking if there is any sub menu -->
                                     <?php if (isset($item["sub-menu"])) { ?>
                                         <span 
-                                            class="material-symbols-outlined down-arrow">
-                                                <?= 
-                                                    isCurrentSet($item["url"]) ? 
-                                                    'arrow_drop_up' : 
-                                                    'arrow_drop_down' 
-                                                ?>
+                                            class="material-symbols-outlined down-arrow"><?= isCurrentSet($item["url"]) ? 'arrow_drop_up' : 'arrow_drop_down' ?>
                                         </span>
                                     <?php } ?>
 
@@ -164,7 +159,7 @@
             </nav>
         </div>
         
-        <form class="footer" method="POST" action="<?= $path . '/overview.php' ?>">
+        <form class="footer" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
             <button type="submit" name="logout" value="Logout">
                 <span class="material-symbols-outlined">logout</span>
                 Logout

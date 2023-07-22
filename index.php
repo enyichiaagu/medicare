@@ -2,7 +2,7 @@
 	// Redirect to overview if user navigates to '/'
 	$prefix = '/medicare/';
 	if ($_SERVER['REQUEST_URI'] === $prefix . 'index.php' || $_SERVER['REQUEST_URI'] === $prefix) {
-		header('Location: ./dashboard/overview.php');
+		header('Location: login.php');
 		exit;
 	}
 
@@ -12,27 +12,25 @@
 	}
 
 	function generatePageHead($pageTitle) {
+
+		// Initialize path of urls
+		$path = relativePath();
+
 		// Grabbing session variables, initializing $_SESSION
 		session_start();
 
 		// Check if user posted a logout request
-		if (isset($_POST['logout'])) {
+		if (isset($_POST['logout']) || !$_SESSION['isLoggedIn']) {
 
 			// Unset and destroy the session 
 			session_unset();
 			session_destroy();
 
 			// Redirect to login page
-			header('Location: ./login.php');
+			header("Location: $path/../login.php");
 			exit;
 
-		// Make sure user cannot load the page unless logged in
-		} else if (!$_SESSION['isLoggedIn']) {
-			header('Location: ./login.php');
-			exit;
 		}
-
-		$path = relativePath();
 ?>
 
 <!DOCTYPE html>

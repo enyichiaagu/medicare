@@ -15,7 +15,7 @@ function toggleSubMenu(currentTarget, index) {
 		'sub-menu-open'
 	)
 	dropDownIcons[index].textContent =
-		dropDownIcons[index].textContent === 'arrow_drop_down'
+		dropDownIcons[index].textContent.trim() === 'arrow_drop_down'
 			? 'arrow_drop_up'
 			: 'arrow_drop_down'
 }

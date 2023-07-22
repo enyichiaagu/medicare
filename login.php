@@ -10,7 +10,7 @@
 	$database = 'medicare';
 
 	function redirectUser() {
-		header('Location: ./dashboard/overview.php');
+		header('Location: dashboard/overview.php');
 		exit;
 	}
 
