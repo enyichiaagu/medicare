@@ -58,12 +58,21 @@ h1.logo-text {
 }
 
 .body-layout {
-	display: flex;
+	position: static;
 }
 
 main.main-content {
 	padding-top: 10vh;
-	flex-grow: 1;
+	margin-left: 16rem;
+	background-color: var(--white);
+	min-height: 100vh;
+	transition: margin-left 200ms ease-in;
+	position: relative;
+	z-index: 1;
+}
+
+main.main-content.widen {
+	margin-left: 0;
 }
 
 main div.content-box {
@@ -78,8 +87,4 @@ span.material-symbols-outlined {
 
 a {
 	text-decoration: none;
-}
-
-body {
-	background-color: green;
 }

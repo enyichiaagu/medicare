@@ -96,75 +96,72 @@
 
 ?>
 <aside class="sidebar">
-    <div class="menu-options">
-        <div class="list-container">
-            <nav>
-                <ul class="navigation">
-                    <!-- Looping through every item in the menu -->
-                    <!-- $path comes from index.php -->
-                    <?php array_map(function($item) use ($path) { ?>
+    <div class="list-container">
+        <nav>
+            <ul class="navigation">
+                <!-- Looping through every item in the menu -->
+                <!-- $path comes from index.php -->
+                <?php array_map(function($item) use ($path) { ?>
 
-                        <li>
-                            <a href="<?= isset($item["sub-menu"]) ? '#' : $path.'/'.$item["url"].'.php' ?>">
-                                <div 
-                                    class="option-display 
-                                    <?php echo 
-                                        (isCurrentPage($item["url"]) || isCurrentSet($item["url"])) ? 
-                                        'active-link': 
-                                        '' 
-                                    ?>"
-                                >
-                                    
-                                    <!-- Display the icon text -->
-                                    <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
-                                    
-                                    <!-- Display the name of the option -->
-                                    <?= $item["name"] ?>
+                    <li>
+                        <a href="<?= isset($item["sub-menu"]) ? '#' : $path.'/'.$item["url"].'.php' ?>">
+                            <div 
+                                class="option-display 
+                                <?php echo 
+                                    (isCurrentPage($item["url"]) || isCurrentSet($item["url"])) ? 
+                                    'active-link': 
+                                    '' 
+                                ?>"
+                            >
+                                
+                                <!-- Display the icon text -->
+                                <span class="material-symbols-outlined"><?= $item["iconText"] ?></span>
+                                
+                                <!-- Display the name of the option -->
+                                <?= $item["name"] ?>
 
-                                    <!-- Checking if there is any sub menu -->
-                                    <?php if (isset($item["sub-menu"])) { ?>
-                                        <span 
-                                            class="material-symbols-outlined down-arrow"><?= isCurrentSet($item["url"]) ? 'arrow_drop_up' : 'arrow_drop_down' ?>
-                                        </span>
-                                    <?php } ?>
+                                <!-- Checking if there is any sub menu -->
+                                <?php if (isset($item["sub-menu"])) { ?>
+                                    <span 
+                                        class="material-symbols-outlined down-arrow"><?= isCurrentSet($item["url"]) ? 'arrow_drop_up' : 'arrow_drop_down' ?>
+                                    </span>
+                                <?php } ?>
 
-                                </div>
-                            </a>
+                            </div>
+                        </a>
 
-                            <?php if (isset($item["sub-menu"])) { ?>
-                                <ul class="sub-menu-items <?= isCurrentSet($item["url"]) ? 'sub-menu-open' : '' ?>">
-                                    <!-- Looping through available submenu -->
-                                    <?php array_map(function($subMenu) use ($item, $path) { ?>
+                        <?php if (isset($item["sub-menu"])) { ?>
+                            <ul class="sub-menu-items <?= isCurrentSet($item["url"]) ? 'sub-menu-open' : '' ?>">
+                                <!-- Looping through available submenu -->
+                                <?php array_map(function($subMenu) use ($item, $path) { ?>
 
-                                        <li <?= isCurrentSubPage($item["url"], $subMenu["url"]) ? 'class="active-sub-link"' : '' ?>>
+                                    <li <?= isCurrentSubPage($item["url"], $subMenu["url"]) ? 'class="active-sub-link"' : '' ?>>
 
-                                            <a href="<?= $path.'/'.$item["url"].'/'.$subMenu["url"].'.php' ?>">
+                                        <a href="<?= $path.'/'.$item["url"].'/'.$subMenu["url"].'.php' ?>">
 
-                                                <?= $subMenu["title"] ?>
+                                            <?= $subMenu["title"] ?>
 
-                                            </a>
+                                        </a>
 
-                                        </li>
+                                    </li>
 
-                                    <?php }, $item["sub-menu"]) ?>
+                                <?php }, $item["sub-menu"]) ?>
 
-                                </ul>
-                                <!-- Closing if Statement -->
-                            <?php } ?>
-                        </li>
-                    
-                    <!-- Closing menu options loop -->
-                    <?php }, $menuItems); ?>
-                </ul>
-            </nav>
-        </div>
-        
-        <form class="footer" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
-            <button type="submit" name="logout" value="Logout">
-                <span class="material-symbols-outlined">logout</span>
-                Logout
-            </button>
-        </form>
-
+                            </ul>
+                            <!-- Closing if Statement -->
+                        <?php } ?>
+                    </li>
+                
+                <!-- Closing menu options loop -->
+                <?php }, $menuItems); ?>
+            </ul>
+        </nav>
     </div>
+    
+    <form class="footer" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+        <button type="submit" name="logout" value="Logout">
+            <span class="material-symbols-outlined">logout</span>
+            Logout
+        </button>
+    </form>
 </aside>

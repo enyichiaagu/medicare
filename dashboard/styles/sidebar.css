@@ -4,26 +4,12 @@ aside * {
 
 aside.sidebar {
 	width: 16rem;
-	transition: width 200ms ease-in;
 	background-color: var(--bg-blue);
-}
-
-aside .menu-options {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
 	position: fixed;
-	width: inherit;
-	background-color: inherit;
-}
-
-aside.close-sidebar {
-	width: 0;
-}
-
-aside.close-sidebar .menu-options {
-	position: static;
-	width: 100%;
+	z-index: 0;
 }
 
 aside div.list-container {
