@@ -53,7 +53,7 @@ div.list-container nav::-webkit-scrollbar-thumb {
 	visibility: hidden;
 }
 
-aside:hover div.list-container nav::-webkit-scrollbar-thumb {
+div.list-container:hover nav::-webkit-scrollbar-thumb {
 	visibility: visible;
 }
 

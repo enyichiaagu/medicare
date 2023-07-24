@@ -14,7 +14,7 @@
 }
 
 * {
-	/* border: 1px solid red; */
+	border: 1px solid red;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -63,6 +63,12 @@ h1.logo-text {
 
 main.main-content {
 	padding-top: 10vh;
+	flex-grow: 1;
+}
+
+main div.content-box {
+	max-width: 50rem;
+	margin: 0 auto;
 }
 
 span.material-symbols-outlined {
@@ -72,4 +78,8 @@ span.material-symbols-outlined {
 
 a {
 	text-decoration: none;
+}
+
+body {
+	background-color: green;
 }

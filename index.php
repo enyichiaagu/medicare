@@ -1,4 +1,7 @@
 <?php
+	// Grabbing session variables, initializing $_SESSION
+	session_start();
+
 	// Redirect to overview if user navigates to '/'
 	$prefix = '/medicare/';
 	if ($_SERVER['REQUEST_URI'] === $prefix . 'index.php' || $_SERVER['REQUEST_URI'] === $prefix) {
@@ -15,9 +18,6 @@
 
 		// Initialize path of urls
 		$path = relativePath();
-
-		// Grabbing session variables, initializing $_SESSION
-		session_start();
 
 		// Check if user posted a logout request
 		if (isset($_POST['logout']) || !$_SESSION['isLoggedIn']) {
@@ -57,12 +57,11 @@
 
 			<!-- Add Requested Page -->
 			<main class="main-content">
+				<div class="content-box">
 <?php } ?>
-
-
 <?php function generatePageFoot() { ?>
 	<?php $path = relativePath(); ?>
-
+				</div>
 			</main>
 		</div>
 	
