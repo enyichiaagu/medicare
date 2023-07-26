@@ -1,13 +1,14 @@
 <?php require_once('../index.php') ?>
 <?= generatePageHead('Add Patient') ?>
 
-
+<div class="body">
 <form action="">
-    <h3> Personal Information</h3>
-        <input type="text" id="name" placeholder ="Name">
+    <div>
+        <h3 class="first"> Personal Information</h3>
+            <input type="text" class="personal" id="name" placeholder ="Name">
+    </div>
+
         <input type="date"  id="dob" placeholder="Date of Birth">
-
-
         <!-- Gender -->
         <select id="gender" name="gender">
             <option value="" disabled selected>Gender</option>
@@ -15,6 +16,7 @@
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select>
+        <br>
 
         <!-- Genotype -->
         <select id="genotypeSelection">
@@ -41,26 +43,29 @@
             <input type="tel" id="phone" placeholder ="Phone Number">
             <input type="email" id="email" placeholder ="Email">
 
-    <h3>Emergency Contact Infotmation</h3>
+    <h3>Emergency Contact Information</h3>
             <input type="text" id="nextOfKinName" placeholder ="Next of Kin's Name">
             <input type="tel" id="nextOfKinPhone" placeholder ="Next of Kin's Phone Number">
 
     <h3>Medical History (Checkbox for the following conditions)</h3>
-            <label> <input type="checkbox" name="condition" value="diabetics">Diabetics</label>
-            <label> <input type="checkbox" name="condition" value="high blood pressure">High Blood Pressure</label>
-            <label> <input type="checkbox" name="condition" value="asthma">Asthma</label>
-            <label> <input type="checkbox" name="condition" value="arthritis">Arthritis</label>
-            <label> <input type="checkbox" name="condition" value="stroke">Stroke</label>
+            <label> <input type="checkbox" class="custom-checkbox" name="condition" value="diabetics">Diabetics</label>
+            <label> <input type="checkbox" class="custom-checkbox" name="condition" value="high blood pressure">High Blood Pressure</label>
+            <label> <input type="checkbox" class="custom-checkbox" name="condition" value="asthma">Asthma</label>
+            <label> <input type="checkbox" class="custom-checkbox" name="condition" value="arthritis">Arthritis</label>
+            <label> <input type="checkbox" class="custom-checkbox" name="condition" value="stroke">Stroke</label>
 
             <input type="text" id="others" placeholder ="Others">
             <input type="text" id="allergies" placeholder ="Allergies (optional)">
 
-            <input type="submit" value="Submit">
+            <div class="submit">
+                <input type="submit" id="submit" value="Submit">
+            </div>
 
 
     
 
 </form>
+</div>
     <!-- <script>
     //JavaScript code to set the placeholder text
     const dobInput = document.getElementById("dob");
