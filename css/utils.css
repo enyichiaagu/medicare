@@ -1,71 +1,75 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,48");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,48');
 
 :root {
-  --blue: #3446e3;
-  --bg-blue: #192279;
-  --darker-blue: #131e64;
-  --highlight-blue: #0b113a;
-  --light-grey: #e9ecef;
-  --grey: #817e7e;
-  --black: #0c0e10;
-  --white: #fffbfb;
-  --secondary-font: "Times New Roman";
+	--blue: #3446e3;
+	--bg-blue: #192279;
+	--darker-blue: #131e64;
+	--highlight-blue: #0b113a;
+	--light-grey: #e9ecef;
+	--grey: #817e7e;
+	--black: #0c0e10;
+	--white: #fffbfb;
+	--secondary-font: 'Times New Roman';
 }
 
 * {
-  /* border: 1px solid red; */
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  color: var(--black);
+	/* border: 1px solid red; */
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: var(--black);
 }
 
 h1 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.7rem;
+	font-size: 1.7rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h4 {
-  font-size: 1.3rem;
+	font-size: 1.3rem;
 }
 
 h1.logo-text {
-  font-weight: lighter;
-  letter-spacing: 0.5rem;
+	font-weight: lighter;
+	letter-spacing: 0.5rem;
 }
 
 .logo-text #med {
-  background-color: var(--blue);
+	background-color: var(--blue);
 }
 
 .logo-text #icare {
-  background-color: var(--light-grey);
+	background-color: var(--light-grey);
 }
 
 .secondary-text {
-  font-family: var(--secondary-font);
-  letter-spacing: 1px;
+	font-family: var(--secondary-font);
+	letter-spacing: 1px;
 }
 
 .body-layout {
-  display: flex;
+	display: flex;
 }
 
 main.main-content {
-  padding-top: 10vh;
+	padding-top: 10vh;
 }
 
 span.material-symbols-outlined {
-  cursor: default;
-  user-select: none;
+	cursor: default;
+	user-select: none;
+}
+
+a {
+	text-decoration: none;
 }

@@ -101,7 +101,33 @@ button#submit {
   display: block;
   width: 100%;
   border: none;
-  background-color: var(--black);
+  background-color: #535960;
   color: var(--white);
   border-radius: 0.3em;
+}
+
+button#submit:hover {
+  background-color: var(--black);
+}
+
+.back-option {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.back-option a {
+  display: flex;
+  align-items: center;
+}
+
+.back-option a:hover,
+.back-option a:hover > span.material-symbols-outlined {
+  color: var(--bg-blue);
+}
+
+span.back-icon {
+  margin: 0 0.5rem;
+  max-width: 2rem;
+  overflow: none;
 }
