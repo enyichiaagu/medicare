@@ -60,24 +60,6 @@
             <div class="submit">
                 <input type="submit" id="submit" value="Submit">
             </div>
-
-
-    
-
 </form>
-</div>
-    <!-- <script>
-    //JavaScript code to set the placeholder text
-    const dobInput = document.getElementById("dob");
-    dobInput.addEventListener("focus", function () {
-        this.setAttribute("placeholder", "Date of Birth");
-    });
-
-    dobInput.addEventListener("blur", function() {
-        this.removeAttribute("placeholder");
-    });
-    </script> -->
-        
-
 
 <?= generatePageFoot() ?>
