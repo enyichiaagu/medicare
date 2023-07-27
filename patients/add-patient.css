@@ -1,0 +1,67 @@
+.body {
+  padding-left: 2rem;
+  letter-spacing: 0.13rem;
+  max-width: 100%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+}
+::placeholder {
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}
+input,
+select {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  border: 0.5px black solid;
+}
+.personal,
+#address,
+#others,
+#allergies {
+  width: 99.7%;
+  margin-top: 0.3rem;
+}
+#allergies {
+  padding-top: 1.7rem;
+  padding-bottom: 1.7rem;
+  text-align: left;
+  margin-top: 0.7rem;
+}
+#dob,
+#gender,
+#genotypeSelection,
+#bloodGroup,
+#phone,
+#email,
+#nextOfKinName,
+#nextOfKinPhone {
+  width: 49.6%;
+  margin-top: 0.7rem;
+}
+.custom-checkbox {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+input[type="submit"] {
+  align-items: end;
+}
+#submit {
+  display: inline-block;
+  margin: 1rem auto;
+  margin-left: 70rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--blue);
+  border-radius: 0.3rem;
+  font-weight: bold;
+}
