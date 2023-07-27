@@ -78,7 +78,7 @@
         [
             "name" => "Other Staff",
             "iconText" => "diversity_3",
-            "url" => "staff"
+            "url" => "other-staff"
         ]
     ];
 

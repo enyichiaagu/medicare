@@ -16,6 +16,8 @@ header {
 header .material-symbols-outlined {
 	font-size: 2rem;
 	color: var(--white);
+	max-width: 2rem;
+	overflow: hidden;
 }
 
 header .close-button span {

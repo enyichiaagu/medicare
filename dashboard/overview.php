@@ -2,8 +2,6 @@
 
 <?= generatePageHead('Overview') ?>
 
-<h1>
-    <?= count(explode('/', $_SERVER['PHP_SELF'])) ?>
-</h1>
+<h1>Hello World</h1>
 
 <?= generatePageFoot() ?>

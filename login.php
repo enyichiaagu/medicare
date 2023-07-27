@@ -3,11 +3,12 @@
 	// Grab session variables using this function
 	session_start();
 
-	// Establish database credentials
-	$hostname = 'localhost';
-	$db_username = 'root';
-	$db_password = '';
-	$database = 'medicare';
+	// Import database credentials
+	require_once('./dashboard/db-credentials.php');
+	// $hostname
+	// $db_username
+	// $db_password
+	// $database
 
 	function redirectUser() {
 		header('Location: dashboard/overview.php');

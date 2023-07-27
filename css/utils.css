@@ -9,12 +9,12 @@
 	--light-grey: #e9ecef;
 	--grey: #817e7e;
 	--black: #0c0e10;
-	--white: #fffbfb;
+	--white: #fdfdfd;
 	--secondary-font: 'Times New Roman';
 }
 
 * {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -62,9 +62,9 @@ h1.logo-text {
 }
 
 main.main-content {
-	padding-top: 10vh;
+	padding: 10vh 0;
 	margin-left: 16rem;
-	background-color: var(--white);
+	background-color: var(--light-grey);
 	min-height: 100vh;
 	transition: margin-left 200ms ease-in;
 	position: relative;

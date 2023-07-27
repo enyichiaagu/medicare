@@ -1,0 +1,38 @@
+h2.secondary-text {
+	margin-top: 2rem;
+	font-size: 1.4rem;
+}
+
+form.classic-form input,
+form.classic-form select {
+	background-color: var(--white);
+	padding: 0.5rem 0 0.5rem 2rem;
+	border-radius: 0.15rem;
+	border: 3px solid var(--grey);
+}
+
+form.classic-form .full {
+	margin: 0.5rem 0;
+	display: block;
+	width: 100%;
+}
+
+form.classic-form .split {
+	display: flex;
+	column-gap: 0.5rem;
+}
+
+form.classic-form .split > * {
+	flex: 1;
+}
+
+form.classic-form .button-container {
+	text-align: right;
+}
+
+form.classic-form button.submit {
+	background-color: var(--blue);
+	border-radius: 0.2rem;
+	padding: 0.5rem 0.8rem;
+	border: none;
+}

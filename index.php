@@ -1,6 +1,4 @@
 <?php
-	// Grabbing session variables, initializing $_SESSION
-	session_start();
 
 	// Redirect to overview if user navigates to '/'
 	$prefix = '/medicare/';
@@ -14,7 +12,10 @@
 		return count(explode('/', $_SERVER['PHP_SELF'])) === 4 ? '.' : '..';
 	}
 
-	function generatePageHead($pageTitle) {
+	function generatePageHead($pageTitle, $styleFormat='') {
+
+		// Grabbing session variables, initializing $_SESSION
+		session_start();
 
 		// Initialize path of urls
 		$path = relativePath();
@@ -42,6 +43,7 @@
 		<link rel="stylesheet" href="<?= $path ?>/../css/utils.css">
 		<link rel="stylesheet" href="<?= $path ?>/styles/header.css">
 		<link rel="stylesheet" href="<?= $path ?>/styles/sidebar.css">
+		<?= $styleFormat === '' ? '' : "<link rel='stylesheet' href='$path/styles/$styleFormat'>" ?>
 		<title>Medicare - <?= $pageTitle ?> </title>
 	</head>
 	<body>
@@ -59,7 +61,7 @@
 			<main class="main-content">
 				<div class="content-box">
 <?php } ?>
-<?php function generatePageFoot() { ?>
+<?php function generatePageFoot($scriptPath='') { ?>
 	<?php $path = relativePath(); ?>
 				</div>
 			</main>
@@ -68,6 +70,7 @@
 		<!-- JavaScript Imports -->
 		<script src="<?= $path ?>/scripts/header.js"></script>
 		<script src="<?= $path ?>/scripts/sidebar.js"></script>
+		<?= $scriptPath === '' ? '' : "<script src='$path/scripts/$scriptPath'></script>" ?>
 	</body>
 </html> 
 <?php } ?>
