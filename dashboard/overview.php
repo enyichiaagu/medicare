@@ -2,6 +2,6 @@
 
 <?= generatePageHead('Overview') ?>
 
-<h1>Hello World</h1>
+<h1>Loading ..</h1>
 
 <?= generatePageFoot() ?>

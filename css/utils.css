@@ -11,6 +11,9 @@
 	--black: #0c0e10;
 	--white: #fdfdfd;
 	--secondary-font: 'Times New Roman';
+	--button-grey: #2f3236;
+	--success-bg: #e7fde7;
+	--success-text: #1dbd1d;
 }
 
 * {

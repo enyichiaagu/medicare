@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get a response from db
     $result = $mysqli->query($query);
-    $message = "Staff Successfully Added";
+    $message = "Staff Added Successfully";
 
 }
 
@@ -89,7 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?= generatePageHead('Add New Staff', 'forms.css') ?>
 
-<p><?= $message ?></p>
+<?= $message === '' ? '' : "<p class='success-message'>$message</p>" ?>
+
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="classic-form">
     <h2 class="secondary-text">Personal Information</h2>
     <input type="text" name="staff-name" id="staff-name" placeholder="Full Name" class="full" required>
