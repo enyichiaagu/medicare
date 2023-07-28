@@ -95,13 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2 class="secondary-text">Personal Information</h2>
     <input type="text" name="staff-name" id="staff-name" placeholder="Full Name" class="full" required>
     <div class="split">
-        <input type="date" name="dob" id="dob" required>
+        <input type="text" name="dob" id="dob" required class="date-box" placeholder="Date of Birth">
         <select name="gender" id="gender" placeholder="Gender" required>
             <option>Gender</option>
             <?php array_map(function ($item) { ?>
                 <option value=<?= $item ?>>
                     <?= $item ?>
-                </option> ?>
+                </option>
             <?php }, $formOptions[0]['options']); ?>
         </select>
     </div>
@@ -109,11 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h2 class="secondary-text">Staff Details</h2>
     <select name="unit" id="unit" class="full" required>
-        <option>Select Unit</option>
+        <option value="">Select Unit</option>
         <?php array_map(function ($item) { ?>
             <option value=<?= $item['value'] ?>>
                 <?= $item['title'] ?>
-            </option> ?>
+            </option>
         <?php }, $formOptions[1]['options']); ?>
     </select>
     <select name="position" id="position" class="full" required>
@@ -129,4 +129,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </form>
 
-<?= generatePageFoot('other-staff.js') ?>
+<?= generatePageFoot('other-staff.js', 'normalize-form.js') ?>

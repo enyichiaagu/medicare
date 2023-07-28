@@ -61,7 +61,7 @@
 			<main class="main-content">
 				<div class="content-box">
 <?php } ?>
-<?php function generatePageFoot($scriptPath='') { ?>
+<?php function generatePageFoot($scriptPath1='', $scriptPath2='') { ?>
 	<?php $path = relativePath(); ?>
 				</div>
 			</main>
@@ -70,7 +70,8 @@
 		<!-- JavaScript Imports -->
 		<script src="<?= $path ?>/scripts/header.js"></script>
 		<script src="<?= $path ?>/scripts/sidebar.js"></script>
-		<?= $scriptPath === '' ? '' : "<script src='$path/scripts/$scriptPath'></script>" ?>
+		<?= $scriptPath1 === '' ? '' : "<script src='$path/scripts/$scriptPath1'></script>" ?>
+		<?= $scriptPath2 === '' ? '' : "<script src='$path/scripts/$scriptPath2'></script>" ?>
 	</body>
 </html> 
 <?php } ?>

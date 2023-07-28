@@ -29,7 +29,7 @@ CREATE TABLE staff(
     specialty VARCHAR(125)
 );
 
-CREATE TABLE appointment(
+CREATE TABLE appointments(
     id INT PRIMARY KEY,
     appointment_id VARCHAR(20) NOT NULL,
     patient_id INT FOREIGN KEY REFERENCES patients(id) NOT NULL,
@@ -51,11 +51,11 @@ CREATE TABLE vital_signs(
     oxygen_saturation VARCHAR(255) NOT NULL
 );
 
-ALTER TABLE `appointment` ADD CONSTRAINT `foreign` FOREIGN KEY (`doctor_id`) REFERENCES `staff`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+-- ALTER TABLE `appointment` ADD CONSTRAINT `foreign` FOREIGN KEY (`doctor_id`) REFERENCES `staff`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty)
     VALUES(null, '64a5691cec267', 'Jessica Gabriel', 'Female', '2002-03-27', 'jessica@medicare.com', '$2y$10$01IMTmJxf9k5zNVTveIsrOcfjGrU8Jq/lVLQu0VZTxL5pUjEMo4TS', '+234901292233701', 'Receptionist', 'opd', null)
 
-ALTER TABLE `vital_signs`
-  ADD CONSTRAINT `vital_signs_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`patient_id`);
-COMMIT;
+-- ALTER TABLE `vital_signs`
+--   ADD CONSTRAINT `vital_signs_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`patient_id`);
+-- COMMIT;
