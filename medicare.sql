@@ -30,25 +30,28 @@ CREATE TABLE staff(
 );
 
 CREATE TABLE appointments(
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     appointment_id VARCHAR(20) NOT NULL,
-    patient_id INT FOREIGN KEY REFERENCES patients(id) NOT NULL,
+    patient_id INT NOT NULL,
     appointment_type VARCHAR(255) NOT NULL,
-    doctor_id INT FOREIGN KEY REFERENCES staff(id) NOT NULL,
+    doctor_id INT NOT NULL,
     comment_for_doctor VARCHAR(255),
-    date DATE,
-    time TIMESTAMP
+    appointment_date DATE,
+    appointment_time TIME,
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (doctor_id) REFERENCES staff(id) 
 );
 
 CREATE TABLE vital_signs(
-    ID INT PRIMARY KEY,
-    patient_id VARCHAR(20)
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
     blood_pressure VARCHAR(20) NOT NULL,
     pulse_rate VARCHAR(20) NOT NULL,
     body_weight VARCHAR(20) NOT NULL,
     body_temperature VARCHAR(20) NOT NULL,
-    urine_composition VARCHAR(255) NOT NULL,
-    oxygen_saturation VARCHAR(255) NOT NULL
+    urine_composition VARCHAR(255),
+    oxygen_saturation VARCHAR(255),
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
 );
 
 -- ALTER TABLE `appointment` ADD CONSTRAINT `foreign` FOREIGN KEY (`doctor_id`) REFERENCES `staff`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;

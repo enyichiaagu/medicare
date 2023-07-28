@@ -12,8 +12,10 @@
 	--white: #fdfdfd;
 	--secondary-font: 'Times New Roman';
 	--button-grey: #2f3236;
-	--success-bg: #e7fde7;
+	--success-bg: #c4f2c4;
 	--success-text: #1dbd1d;
+	--error-bg: #f8d0c8;
+	--error-text: #e71010;
 }
 
 * {
@@ -90,4 +92,35 @@ span.material-symbols-outlined {
 
 a {
 	text-decoration: none;
+}
+
+div.notification {
+	padding: 1rem 2rem;
+	display: flex;
+	align-items: center;
+	border-radius: 0.3rem;
+}
+
+div.notification span.material-symbols-outlined {
+	font-size: 2.5rem;
+}
+
+.error-message {
+	background-color: var(--error-bg);
+	color: var(--error-text);
+	column-gap: 0.5rem;
+}
+
+.error-message span.material-symbols-outlined {
+	color: var(--error-text);
+}
+
+.success-message {
+	background-color: var(--success-bg);
+	color: var(--success-text);
+	justify-content: space-between;
+}
+
+.success-message span.material-symbols-outlined {
+	color: var(--success-text);
 }

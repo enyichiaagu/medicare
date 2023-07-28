@@ -16,7 +16,7 @@
                     "url" => "create-appointment"
                 ],
                 [
-                    "title" => "Find Appointment",
+                    "title" => "See Appointments",
                     "url" => "list-appointments"
                 ]
             ]

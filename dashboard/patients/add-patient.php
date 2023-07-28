@@ -26,16 +26,11 @@ require_once('../db-credentials.php');
 // $db_password
 // $database
 
-$message = '';
-
 function escapeSingleQuotes($str) {
     return str_replace("'", "\\'", $str);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    // Connect to the database
-    $mysqli = new mysqli($hostname, $db_username, $db_password, $database);
 
     $full_name = $_POST['patient-name'];
     $date_of_birth = $_POST['dob'];
@@ -60,13 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get a response from db
     $result = $mysqli->query($query);
-    $message = "Patient Added Successfully";
+    $message = ["success", "Patient Added Successfully"];
 }
 
-generatePageHead('Add New Patient', 'forms.css'); ?>
+?>
 
-<?= $message === '' ? '' : "<p class='success-message'>$message</p>" ?>
+<?= generatePageHead('Add New Patient', 'forms.css'); ?>
 
+<?php if (isset($message[0]) && $message[0] === 'success') { ?>
+    <div class="success-message notification"><?= $message[1]?><span class="material-symbols-outlined">check_circle</span></div>
+<?php } ?>
 
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="classic-form">
     <h2 class="secondary-text">Personal Information</h2>
@@ -134,4 +132,4 @@ generatePageHead('Add New Patient', 'forms.css'); ?>
     </div>
 </form>
 
-<?= generatePageFoot('normalize-form.js') ?>
+<?= generatePageFoot('forms/normalize-date-time.js') ?>

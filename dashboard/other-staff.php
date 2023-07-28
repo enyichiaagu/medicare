@@ -129,4 +129,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </form>
 
-<?= generatePageFoot('other-staff.js', 'normalize-form.js') ?>
+<?= generatePageFoot('forms/other-staff.js', 'forms/normalize-date-time.js') ?>

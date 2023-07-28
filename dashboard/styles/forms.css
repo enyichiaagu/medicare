@@ -84,11 +84,3 @@ form.classic-form button.submit {
 	padding: 0.5rem 0.8rem;
 	border: none;
 }
-
-.success-message {
-	padding: 1rem 2rem;
-	background-color: var(--success-bg);
-	color: var(--success-text);
-	border: 1px solid var(--success-text);
-	border-radius: 0.2rem;
-}

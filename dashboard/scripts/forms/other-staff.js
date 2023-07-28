@@ -24,6 +24,10 @@ const units = [
 		unitName: 'nursing',
 		positions: ['Nurse', 'Auxillary Nurse'],
 	},
+	{
+		unitName: 'physician',
+		positions: ['Doctor'],
+	},
 ]
 
 selectUnit.addEventListener('change', ({ target }) => {
