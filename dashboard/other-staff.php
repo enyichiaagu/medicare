@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?= generatePageHead('Add New Staff', 'forms.css') ?>
 
-<?= $message === '' ? '' : "<p class='success-message'>$message</p>" ?>
+<?= $message === '' ? '' : "<div class='success-message notification'>$message<span class='material-symbols-outlined'>check_circle</span></div>" ?>
 
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="classic-form">
     <h2 class="secondary-text">Personal Information</h2>
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="email" name="staff-email" id="staff-email" class="full" placeholder="New Staff Email" required>
     <input type="password" name="staff-password" id="staff-password" class="full" placeholder="New Staff Password" required>
     <div class="button-container">
-        <button class="submit">Submit</button>
+        <button class="submit default-button">Submit</button>
     </div>
 </form>
 

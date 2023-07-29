@@ -15,7 +15,7 @@
     <input type="text" name="" id="" placeholder="Urine Composition" class="full">
     <input type="text" name="" id="" placeholder="Oxygen Composition" class="full">
     <div class="button-container">
-        <button class="submit">Submit</button>
+        <button class="submit default-button">Submit</button>
     </div>
 </form>
 <?= generatePageFoot('other-staff.js') ?>

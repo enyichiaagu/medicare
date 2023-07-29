@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" id="others" placeholder="Others (If any)" class="full" name="condition[]">
     <textarea type="text" id="allergies" name="allergies" placeholder ="Allergies (optional)" class="full"></textarea>
     <div class="button-container">
-        <button type="submit" id="submit" class="submit">Submit</button>
+        <button type="submit" id="submit" class="submit default-button">Submit</button>
     </div>
 </form>
 

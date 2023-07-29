@@ -124,3 +124,10 @@ div.notification span.material-symbols-outlined {
 .success-message span.material-symbols-outlined {
 	color: var(--success-text);
 }
+
+button.default-button {
+	background-color: var(--blue);
+	border-radius: 0.2rem;
+	padding: 0.5rem 0.8rem;
+	border: none;
+}

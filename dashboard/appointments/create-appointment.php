@@ -52,13 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message=['error', 'The Patient\'s Email is not registered'];
     }
 
-    // Query for adding a new Staff
-    // $second_query = "";
-
-    // Get a response from db
-    // $result = $mysqli->query($query);
-    // $message = "Staff Added Successfully";
-
 } 
 
 ?>
@@ -97,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </select>
     <textarea placeholder="Comment for Doctor (Optional)" class="full" name="comment"></textarea>
     <div class="button-container">
-        <button class="submit">Book Appointment</button>
+        <button class="submit default-button">Book Appointment</button>
     </div>
 </form>
 

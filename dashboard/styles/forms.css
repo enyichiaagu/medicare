@@ -77,10 +77,3 @@ form.classic-form .split > * {
 form.classic-form .button-container {
 	text-align: right;
 }
-
-form.classic-form button.submit {
-	background-color: var(--blue);
-	border-radius: 0.2rem;
-	padding: 0.5rem 0.8rem;
-	border: none;
-}

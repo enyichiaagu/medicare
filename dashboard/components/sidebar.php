@@ -47,7 +47,7 @@
             "sub-menu" => [
                 [
                     "title" => "List Appointments",
-                    "url" => "list-appointments"
+                    "url" => "my-appointments"
                 ],
                 [
                     "title" => "List Available Doctors",
@@ -77,7 +77,7 @@
         ],
         [
             "name" => "Other Staff",
-            "iconText" => "diversity_3",
+            "iconText" => "group_add",
             "url" => "other-staff"
         ]
     ];
