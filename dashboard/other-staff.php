@@ -49,18 +49,9 @@ $formOptions = [
 
 // Import database credentials
 require_once('./db-credentials.php');
-// $hostname
-// $db_username
-// $db_password
-// $database
-
-// Status message
-$message = '';
+//$mysqli
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    // Connect to the database
-    $mysqli = new mysqli($hostname, $db_username, $db_password, $database);
 
     // Grab the staff's details
     $full_name = $_POST['staff-name'];
@@ -73,15 +64,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $specialty = $_POST['specialty'];
     $staff_password = $_POST['staff-password'];
 
-    $encryptedPassword = password_hash($staff_password, PASSWORD_BCRYPT);
-    $staff_id = uniqid();
+    $check_query = "SELECT email_address FROM staff WHERE email_address='$email'";
+    $originalEntry = $mysqli->query($check_query);
 
-    // Query for adding a new Staff
-    $query = "INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty) VALUES(null, '$staff_id', '$full_name', '$gender', '$date_of_birth', '$email', '$encryptedPassword', '$phone_number', '$staff_position', '$staff_unit', '$specialty')";
+    if ($originalEntry->num_rows === 1) {
+        $message = ["error", "A Staff already uses this email"];
+    } else {
+        $encryptedPassword = password_hash($staff_password, PASSWORD_BCRYPT);
+        $staff_id = uniqid();
 
-    // Get a response from db
-    $result = $mysqli->query($query);
-    $message = "Staff Added Successfully";
+        // Query for adding a new Staff
+        $save_query = "INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty) VALUES(null, '$staff_id', '$full_name', '$gender', '$date_of_birth', '$email', '$encryptedPassword', '$phone_number', '$staff_position', '$staff_unit', '$specialty')";
+
+        // Get a response from db
+        $result = $mysqli->query($save_query);
+        $message = ["success", "Staff Added Successfully"];
+    }
 
 }
 
@@ -89,8 +87,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?= generatePageHead('Add New Staff', 'forms.css') ?>
 
-<?= $message === '' ? '' : "<div class='success-message notification'>$message<span class='material-symbols-outlined'>check_circle</span></div>" ?>
-
+<?php if (isset($message[0]) && $message[0] === 'error') { ?>
+    <div class="error-message notification"><span class="material-symbols-outlined">error</span><?= $message[1] ?></div>
+<?php } elseif (isset($message[0]) && $message[0] === 'success') { ?>
+    <div class="success-message notification"><?= $message[1]?><span class="material-symbols-outlined">check_circle</span></div>
+<?php } ?>
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="classic-form">
     <h2 class="secondary-text">Personal Information</h2>
     <input type="text" name="staff-name" id="staff-name" placeholder="Full Name" class="full" required>

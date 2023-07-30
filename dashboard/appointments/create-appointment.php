@@ -15,12 +15,11 @@ $appointment_options = [
 require_once('../db-credentials.php');
 // $mysqli
 
-// Status Message
-$message= [];
-
 // Query for fetching all doctors
 $first_query = "SELECT full_name, id FROM `staff` WHERE position='Doctor'";
 $doctors = $mysqli->query($first_query);
+
+
 if ($doctors->num_rows > 0) {
     $doctorsArray = [];
     // Fetch each row and add it to the $doctorsArray
@@ -28,6 +27,14 @@ if ($doctors->num_rows > 0) {
         $doctorsArray[] = $row;
     }
 }
+
+// Variables for Staff Details
+$email = '';
+$appointment_type = '';
+$appointment_day = '';
+$appointment_time = '';
+$doctor_id = '';
+$comment = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -39,15 +46,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $doctor_id = $_POST['doctor-id'];
     $comment = $_POST['comment'];
 
-    $appointment_id = uniqid();
+    $fetch_patient_query = "SELECT id FROM patients WHERE email_address='$email'";
+    $patient = $mysqli->query($fetch_patient_query);
 
-    $second_query = "SELECT id FROM patients WHERE email_address='$email'";
-    $patient = $mysqli->query($second_query);
     if ($patient->num_rows === 1) {
-        $patient_id = $patient->fetch_assoc()['id'];
-        $third_query = "INSERT INTO appointments(appointment_id, patient_id, appointment_type, doctor_id, comment_for_doctor, appointment_date, appointment_time) VALUES('$appointment_id', '$patient_id', '$appointment_type', '$doctor_id', '$comment', '$appointment_day', '$appointment_time')";
-        $result = $mysqli->query($third_query);
-        $message=['success', 'Appointment Booked Successfully'];
+
+        $fetch_appointment = "SELECT appointment_time FROM appointments WHERE appointment_date='$appointment_day' AND doctor_id='$doctor_id'";
+        $booked = $mysqli->query($fetch_appointment);
+
+        if ($booked->num_rows === 1) $message = ['error', 'Another Patient has booked this time, pick another Doctor'];
+        else {
+            $patient_id = $patient->fetch_assoc()['id'];
+
+            $appointment_id = uniqid();
+
+            $third_query = "INSERT INTO appointments(appointment_id, patient_id, appointment_type, doctor_id, comment_for_doctor, appointment_date, appointment_time) VALUES('$appointment_id', '$patient_id', '$appointment_type', '$doctor_id', '$comment', '$appointment_day', '$appointment_time')";
+            $result = $mysqli->query($third_query);
+            $message=['success', 'Appointment Booked Successfully'];
+        }
+
     } else {
         $message=['error', 'The Patient\'s Email is not registered'];
     }
@@ -59,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?= generatePageHead('Create New Appointment', 'forms.css') ?>
 
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="classic-form">
-    
     <?php if (isset($message[0]) && $message[0] === 'error') { ?>
         <div class="error-message notification"><span class="material-symbols-outlined">error</span><?= $message[1] ?></div>
     <?php } elseif (isset($message[0]) && $message[0] === 'success') { ?>
@@ -67,9 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php } ?>
 
     <h2 class="secondary-text">Create New Appointment</h2>
-    <input type="text" name="patient-email" id="" placeholder="Patient Email" class="full">
+    <input type="text" name="patient-email" id="" placeholder="Patient Email" class="full" value="<?= $email ?>">
     <select name="appointment_type" id="appointment_type" class="full" required>
-        <option value='' selected>Appointment Type</option>
+        <option value="">Appointment Type</option>
         <?php array_map(function ($item) { ?>
             <option value="<?= $item ?>">
                 <?= $item ?>
@@ -81,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="appointment_time" id="" class="time-box" placeholder="Time" min="09:00" max="16:30" name="appointment-time">
     </div>
     <select name="doctor-id" class="full">
-        <option value="">Select Doctor</option>
+        <option value="" selected>Select Doctor</option>
         <?php array_map(function ($item) { ?>
             <option value="<?= $item['id'] ?>">
                 <?= $item['full_name'] ?>
