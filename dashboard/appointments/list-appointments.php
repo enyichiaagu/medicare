@@ -10,6 +10,7 @@ require_once('../db-credentials.php');
 $query = "SELECT appointments.appointment_date, appointments.appointment_time, patients.full_name AS patient_name, patients.email_address, patients.gender, staff.full_name FROM `appointments` INNER JOIN `patients` ON appointments.patient_id = patients.id INNER JOIN `staff` ON appointments.doctor_id = staff.id";
 
 $appointments = $mysqli->query($query);
+
 if ($appointments->num_rows > 0) {
     $appointmentArray = [];
     
@@ -17,6 +18,17 @@ if ($appointments->num_rows > 0) {
     while ($row = $appointments->fetch_assoc()) {
         $appointmentArray[] = $row;
     }
+
+    usort($appointmentArray, function ($first, $second) {
+        if (strtotime($first['appointment_date']) > strtotime($second['appointment_date'])) return 1;
+        elseif (strtotime($first['appointment_date']) < strtotime($second['appointment_date'])) return -1;
+        else {
+            if (strtotime($first['appointment_time']) > strtotime($second['appointment_time'])) return 1;
+            elseif (strtotime($first['appointment_time']) < strtotime($second['appointment_time'])) return -1;
+            else return 0;
+        }
+    });
+
 }
 
 // Format the date as "d F" (e.g., "31 July")
