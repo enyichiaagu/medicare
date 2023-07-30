@@ -42,12 +42,10 @@
 
 				// Redirect the user
 				redirectUser();
-			} else {
-				printf('Email or Password is incorrect!');
 			}
-		} else {
-			printf('Email or Password is incorrect!');
 		}
+
+		$errorMessage = "Username or Password is Incorrect, Please Try Again";
 
 	// Else make sure user cannot arrive at this page anymore
 	} else if (isset($_SESSION['isLoggedIn'])) {
@@ -106,6 +104,9 @@
 				<div class="forgot-password">
 					<a href="forgot-password.php">Forgot Password?</a>
 				</div>
+				<?php if (isset($errorMessage)) { ?>
+					<div class="error-message notification"><span class="material-symbols-outlined">error</span><?= $errorMessage ?></div>
+				<?php } ?>
 				<button id="submit" type="submit">Sign in</button>
 			</form>
 		</main>

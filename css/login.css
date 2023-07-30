@@ -84,7 +84,7 @@ main {
 
 .forgot-password {
 	text-align: right;
-	margin-bottom: 1rem;
+	margin-bottom: 1rem 0;
 }
 
 .forgot-password a {
@@ -97,13 +97,14 @@ main {
 }
 
 button#submit {
-	padding: 1em;
+	padding: 1rem;
 	display: block;
 	width: 100%;
 	border: none;
 	background-color: var(--button-grey);
 	color: var(--white);
 	border-radius: 0.3em;
+	margin: 1rem 0;
 }
 
 button#submit:hover {

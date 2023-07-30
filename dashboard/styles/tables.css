@@ -37,13 +37,12 @@
 
 .classic-table th {
 	padding: 0.5rem;
-	text-align: center;
+	text-align: left;
 	font-weight: normal;
 }
 
 .classic-table td {
 	padding: 0.5rem 0.5rem;
-	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

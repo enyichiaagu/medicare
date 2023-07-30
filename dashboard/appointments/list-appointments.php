@@ -12,6 +12,7 @@ $query = "SELECT appointments.appointment_date, appointments.appointment_time, p
 $appointments = $mysqli->query($query);
 if ($appointments->num_rows > 0) {
     $appointmentArray = [];
+    
     // Fetch each row and add it to the $appointmentArray
     while ($row = $appointments->fetch_assoc()) {
         $appointmentArray[] = $row;
@@ -21,7 +22,9 @@ if ($appointments->num_rows > 0) {
 // Format the date as "d F" (e.g., "31 July")
 function formatDate($inputDate) {
     $dateObj = new DateTime($inputDate);
-    $formattedDate = $dateObj->format('d F');
+    $formatDay = $dateObj->format('d');
+    $formatMonth = str_split($dateObj->format('F'), 3)[0];
+    $formattedDate = "$formatDay $formatMonth";
     return $formattedDate;
 }
 
@@ -34,7 +37,7 @@ function formatTimeRange($startTime) {
     $endObj->modify('+30 minutes');
 
     // Format the times as "h:i A"
-    $formattedStart = $startObj->format('h:i A');
+    $formattedStart = $startObj->format('h:i');
     $formattedEnd = $endObj->format('h:i A');
 
     // Concatenate the formatted times
@@ -63,9 +66,9 @@ function formatTimeRange($startTime) {
             <tr>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Patient</th>
-                <th>Email Address</th>
-                <th>Gender</th>
+                <th>Patient Name</th>
+                <th>Patient Email</th>
+                <!-- <th>Patient Gender</th> -->
                 <th>Assigned Doctor</th>
             </tr>
         </thead>
@@ -77,7 +80,7 @@ function formatTimeRange($startTime) {
                         <td><?= formatTimeRange($item['appointment_time']) ?></td>
                         <td class="clip-data"><?= $item['patient_name'] ?></td>
                         <td class="clip-data"><?= $item['email_address'] ?></td>
-                        <td><?= $item['gender'] ?></td>
+                        <!-- <td><?= $item['gender'] ?></td> -->
                         <td><?= $item['full_name'] ?></td>
                     </tr>
                 <?php }, $appointmentArray); ?>
