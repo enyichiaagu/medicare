@@ -19,10 +19,6 @@ $formOptions = [
     ]
 ];
 
-// Import database credentials
-require_once('../db-credentials.php');
-// $mysqli
-
 function escapeSingleQuotes($str) {
     return str_replace("'", "\\'", $str);
 }

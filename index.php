@@ -7,6 +7,8 @@
 		exit;
 	}
 
+	require_once('db-credentials.php');
+
 	// Function to check the relative path type to use
 	function relativePath() {
 		return count(explode('/', $_SERVER['PHP_SELF'])) === 4 ? '.' : '..';

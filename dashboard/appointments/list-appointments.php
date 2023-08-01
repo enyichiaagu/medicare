@@ -2,9 +2,7 @@
 
 require_once('../../index.php');
 
-// Import database credentials
-require_once('../db-credentials.php');
-// $mysqli
+$search = isset($_GET['q']) ? $_GET['q'] : '';
 
 // Query for Fetching Related Info
 $query = "SELECT appointments.appointment_date, appointments.appointment_time, patients.full_name AS patient_name, patients.email_address, patients.gender, staff.full_name FROM `appointments` INNER JOIN `patients` ON appointments.patient_id = patients.id INNER JOIN `staff` ON appointments.doctor_id = staff.id";
@@ -19,7 +17,11 @@ if ($appointments->num_rows > 0) {
         $appointmentArray[] = $row;
     }
 
-    usort($appointmentArray, function ($first, $second) {
+    $filteredAppointments = array_filter($appointmentArray, function ($item) use ($search){
+        return stripos($item['email_address'], $search) !== false;
+    });
+
+    usort($filteredAppointments, function ($first, $second) {
         if (strtotime($first['appointment_date']) > strtotime($second['appointment_date'])) return 1;
         elseif (strtotime($first['appointment_date']) < strtotime($second['appointment_date'])) return -1;
         else {
@@ -68,7 +70,7 @@ function formatTimeRange($startTime) {
             search
         </span>
     </span>
-    <input type="text" name="" id="" placeholder="Search Patient Email" class="input-bar">
+    <input type="text" name="q" id="q" placeholder="Search Patient Email" class="input-bar" value="<?= $search ?>">
     <button class="default-button">Submit</button>
 </form>
 
@@ -85,7 +87,7 @@ function formatTimeRange($startTime) {
             </tr>
         </thead>
         <tbody>
-            <?php if (isset($appointmentArray)) { ?>
+            <?php if (isset($filteredAppointments)) { ?>
                 <?php array_map(function ($item) { ?>
                     <tr>
                         <td><?= formatDate($item['appointment_date']) ?></td>
@@ -95,7 +97,7 @@ function formatTimeRange($startTime) {
                         <!-- <td><?= $item['gender'] ?></td> -->
                         <td><?= $item['full_name'] ?></td>
                     </tr>
-                <?php }, $appointmentArray); ?>
+                <?php }, $filteredAppointments); ?>
             <?php } ?>
         </tbody>
     </table>

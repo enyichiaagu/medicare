@@ -11,10 +11,6 @@ $appointment_options = [
     'Others'
 ];
 
-// Import database credentials
-require_once('../db-credentials.php');
-// $mysqli
-
 // Query for fetching all doctors
 $first_query = "SELECT full_name, id FROM `staff` WHERE position='Doctor'";
 $doctors = $mysqli->query($first_query);
@@ -62,7 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $third_query = "INSERT INTO appointments(appointment_id, patient_id, appointment_type, doctor_id, comment_for_doctor, appointment_date, appointment_time) VALUES('$appointment_id', '$patient_id', '$appointment_type', '$doctor_id', '$comment', '$appointment_day', '$appointment_time')";
             $result = $mysqli->query($third_query);
-            $message=['success', 'Appointment Booked Successfully'];
+            $message = ['success', 'Appointment Booked Successfully'];
+
+            $email = '';
         }
 
     } else {

@@ -47,10 +47,6 @@ $formOptions = [
 
 ];
 
-// Import database credentials
-require_once('./db-credentials.php');
-//$mysqli
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Grab the staff's details
@@ -98,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="split">
         <input type="text" name="dob" id="dob" required class="date-box" placeholder="Date of Birth">
         <select name="gender" id="gender" placeholder="Gender" required>
-            <option>Gender</option>
+            <option value="">Gender</option>
             <?php array_map(function ($item) { ?>
                 <option value=<?= $item ?>>
                     <?= $item ?>

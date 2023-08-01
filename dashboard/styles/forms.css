@@ -3,6 +3,10 @@ h2.secondary-text {
 	font-size: 1.4rem;
 }
 
+form.classic-form {
+	position: relative;
+}
+
 form.classic-form input,
 form.classic-form select,
 form.classic-form textarea {
@@ -37,7 +41,7 @@ form.classic-form input[type='checkbox'] {
 
 form.classic-form input[type='checkbox'] + label {
 	position: relative;
-	padding-left: 2.5rem;
+	padding-left: 2rem;
 	display: block;
 }
 
@@ -48,10 +52,11 @@ form.classic-form input[type='checkbox'] + label::before {
 	top: -0.25rem;
 	width: 1.5rem;
 	height: 1.5rem;
-	border: 3px solid var(--black);
+	border: 3px solid var(--grey);
 	border-radius: 0.4rem;
 	text-align: center;
 	font-weight: bold;
+	background-color: var(--white);
 }
 
 form.classic-form input[type='checkbox']:checked + label::before {

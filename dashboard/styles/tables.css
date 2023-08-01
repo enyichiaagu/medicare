@@ -53,3 +53,7 @@
 .classic-table td.clip-data {
 	max-width: 10rem;
 }
+
+main div.content-box {
+	max-width: 70rem;
+}

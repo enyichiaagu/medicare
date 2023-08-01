@@ -4,7 +4,7 @@
 	session_start();
 
 	// Import database credentials
-	require_once('./dashboard/db-credentials.php');
+	require_once('db-credentials.php');
 	// $hostname
 	// $db_username
 	// $db_password

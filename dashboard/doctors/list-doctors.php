@@ -2,10 +2,6 @@
 
 require_once('../../index.php');
 
-// Import database credentials
-require_once('../db-credentials.php');
-// $mysqli
-
 // Query for fetching all doctors
 $fetch_doctors = "SELECT full_name, gender, email_address, specialty FROM `staff` WHERE position='Doctor'";
 $doctors = $mysqli->query($fetch_doctors);

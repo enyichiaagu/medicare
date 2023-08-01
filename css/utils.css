@@ -99,6 +99,7 @@ div.notification {
 	display: flex;
 	align-items: center;
 	border-radius: 0.3rem;
+	margin-top: 1rem;
 }
 
 div.notification span.material-symbols-outlined {
