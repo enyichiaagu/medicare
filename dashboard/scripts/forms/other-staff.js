@@ -28,6 +28,14 @@ const units = [
 		unitName: 'physician',
 		positions: ['Doctor'],
 	},
+	{
+		unitName: 'lab',
+		positions: ['Lab Technician'],
+	},
+	{
+		unitName: 'bursary',
+		positions: ['Head Accountant'],
+	},
 ]
 
 selectUnit.addEventListener('change', ({ target }) => {

@@ -7,6 +7,10 @@
 		exit;
 	}
 
+	// Grabbing session variables, initializing $_SESSION
+	session_start();
+
+	// Fetch Project Essentials ($hospital_units, $mysqli)
 	require_once('db-credentials.php');
 
 	// Function to check the relative path type to use
@@ -15,9 +19,6 @@
 	}
 
 	function generatePageHead($pageTitle, $styleFormat='') {
-
-		// Grabbing session variables, initializing $_SESSION
-		session_start();
 
 		// Initialize path of urls
 		$path = relativePath();

@@ -1,86 +1,9 @@
 <?php
     // Creating an array with the menu list and sub lists
-    $menuItems = [
-        [
-            "name" => "Overview",
-            "iconText" => "dashboard",
-            "url" => "overview"
-        ],
-        [
-            "name" => "Appointments",
-            "iconText" => "calendar_month",
-            "url" => "appointments",
-            "sub-menu" => [
-                [
-                    "title" => "Create New Appointment",
-                    "url" => "create-appointment"
-                ],
-                [
-                    "title" => "See Appointments",
-                    "url" => "list-appointments"
-                ]
-            ]
-        ],
-        [
-            "name" => "Patients",
-            "iconText" => "person",
-            "url" => "patients",
-            "sub-menu" => [
-                [
-                    "title" => "Add New Patient",
-                    "url" => "add-patient"
-                ],
-                [
-                    "title" => "Find Patient",
-                    "url" => "list-patients"
-                ],
-                [
-                    "title" => "Take Vital Signs",
-                    "url" => "vital-signs"
-                ]
-            ]
-        ],
-        [
-            "name" => "Doctors",
-            "iconText" => "stethoscope",
-            "url" => "doctors",
-            "sub-menu" => [
-                [
-                    "title" => "List Appointments",
-                    "url" => "my-appointments"
-                ],
-                [
-                    "title" => "List Available Doctors",
-                    "url" => "list-doctors"
-                ]
-            ]
-        ],
-        [
-            "name" => "Pharmacy",
-            "iconText" => "medication",
-            "url" => "pharmacy"
-        ],
-        [
-            "name" => "Laboratory",
-            "iconText" => "biotech",
-            "url" => "laboratory"
-        ],
-        [
-            "name" => "Ward",
-            "iconText" => "ward",
-            "url" => "ward"
-        ],
-        [
-            "name" => "Bursary",
-            "iconText" => "payments",
-            "url" => "bursary"
-        ],
-        [
-            "name" => "Other Staff",
-            "iconText" => "group_add",
-            "url" => "other-staff"
-        ]
-    ];
+    global $page_structure;
+    $menuItems = array_filter($page_structure, function ($category){
+        return isset($category['permission']) && $_SESSION['user']['unit'] === $category['permission'];
+    });
 
     function isCurrentPage($url) {
         return '/medicare/dashboard/' . $url . '.php' === $_SERVER['REQUEST_URI'];

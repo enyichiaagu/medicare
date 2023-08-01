@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../index.php');
+require_once('../../index.php');
 
 $formOptions = [
     [
@@ -13,36 +13,7 @@ $formOptions = [
     ],
     [
         "name" => "unit",
-        "options" => [
-            [
-                "title" => "Accounting Unit",
-                "value" => "bursary"
-            ],
-            [
-                "title" => "Laboratory Unit",
-                "value" => "lab"
-            ],
-            [
-                "title" => "Out Patients Department",
-                "value" => "opd"
-            ],
-            [
-                "title" => "Nursing Unit",
-                "value" => "nursing"
-            ],
-            [
-                "title" => "Pharmacy Unit",
-                "value" => "pharmacy"
-            ],
-            [
-                "title" => "Management",
-                "value" => "management"
-            ],
-            [
-                "title" => "Physician Unit",
-                "value" => "physician"
-            ]
-        ]
+        "options" => $hospital_units
     ]
 
 ];
