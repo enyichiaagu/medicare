@@ -8,7 +8,8 @@
             <input type="text" class="personal" id="name" placeholder ="Name">
     </div>
 
-        <input type="date"  id="dob" placeholder="Date of Birth">
+        <input type="none"  id="dob" placeholder="Date of Birth" disabled>
+        <input type="date"  id="dob2">
         <!-- Gender -->
         <select id="gender" name="gender">
             <option value="" disabled selected>Gender</option>

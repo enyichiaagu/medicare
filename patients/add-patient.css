@@ -9,15 +9,11 @@
 h3 {
   margin-top: 1.5rem;
 }
-::placeholder {
-  padding-left: 2rem;
-  padding-bottom: 2rem;
-}
 input,
 select {
+  padding-left: 2rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-
   border: 0.5px black solid;
 }
 .personal,
@@ -33,7 +29,6 @@ select {
   text-align: left;
   margin-top: 0.7rem;
 }
-#dob,
 #gender,
 #genotypeSelection,
 #bloodGroup,
@@ -43,6 +38,21 @@ select {
 #nextOfKinPhone {
   width: 49.6%;
   margin-top: 0.7rem;
+}
+#dob {
+  width: 47.6%;
+  margin-top: 0.7rem;
+  cursor: default;
+}
+#dob2 {
+  width: 2%;
+  margin-top: 0.7rem;
+  margin-left: -0.5rem;
+  padding-left: 0rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.47rem;
+  /* padding-top: 0; */
+  /* padding-bottom: 0; */
 }
 .custom-checkbox {
   display: inline-block;
@@ -64,4 +74,7 @@ input[type="submit"] {
   background-color: var(--blue);
   border-radius: 0.3rem;
   font-weight: bold;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.13rem;
 }
