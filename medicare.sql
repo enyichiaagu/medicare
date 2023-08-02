@@ -55,6 +55,19 @@ CREATE TABLE vital_signs(
     FOREIGN KEY (patient_id) REFERENCES patients(id)
 );
 
+CREATE TABLE payments(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    payment_id VARCHAR(125) NOT NULL,
+    date_of_payment TIMESTAMP NOT NULL,
+    entry_date TIMESTAMP NOT NULL,
+    amount VARCHAR(20) NOT NULL,
+    reason_for_payment VARCHAR(255),
+    recipient VARCHAR(125) NOT NULL,
+    paid BOOLEAN NOT NULL,
+    FOREIGN KEY (recipient) REFERENCES staff(id),
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
 -- ALTER TABLE `appointment` ADD CONSTRAINT `foreign` FOREIGN KEY (`doctor_id`) REFERENCES `staff`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 INSERT INTO staff(id, staff_id, full_name, gender, date_of_birth, email_address, staff_password, phone_no, position, unit, specialty)
