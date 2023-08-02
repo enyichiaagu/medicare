@@ -1,8 +1,12 @@
 <?php
     // Creating an array with the menu list and sub lists
     global $page_structure;
+
     $menuItems = array_filter($page_structure, function ($category){
-        return isset($category['permission']) && $_SESSION['user']['unit'] === $category['permission'];
+        if (isset($category['permission']) && $_SESSION['user']['unit'] !== 'management') {
+            return stripos($category['permission'], $_SESSION['user']['unit']) !== false;
+        }
+        return true;
     });
 
     function isCurrentPage($url) {

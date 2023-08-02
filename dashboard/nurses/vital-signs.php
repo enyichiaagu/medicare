@@ -14,7 +14,7 @@
     
     <h2 class="secondary-text">Input Vital Signs</h2>
     <input type="text" name="" id="" placeholder="Patient Email" class="full">
-    <input type="text" name="" id="" placeholder="Blood Pressure (Upper/Lower)" class="full">
+    <input type="text" name="" id="" placeholder="Blood Pressure (e.g 180/60)" class="full">
     <div class="split">
         <input type="number" name="" id="" placeholder="Pulse Rate (bpm)">
         <input type="number" name="" id="" placeholder="Weight (lbs)">

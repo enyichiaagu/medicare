@@ -82,7 +82,7 @@ function formatTimeRange($startTime) {
                 <th>Time</th>
                 <th>Patient Name</th>
                 <th>Patient Email</th>
-                <!-- <th>Patient Gender</th> -->
+                <th>Patient Gender</th>
                 <th>Assigned Doctor</th>
             </tr>
         </thead>
@@ -94,7 +94,7 @@ function formatTimeRange($startTime) {
                         <td><?= formatTimeRange($item['appointment_time']) ?></td>
                         <td class="clip-data"><?= $item['patient_name'] ?></td>
                         <td class="clip-data"><?= $item['email_address'] ?></td>
-                        <!-- <td><?= $item['gender'] ?></td> -->
+                        <td><?= $item['gender'] ?></td>
                         <td><?= $item['full_name'] ?></td>
                     </tr>
                 <?php }, $filteredAppointments); ?>

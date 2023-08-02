@@ -36,23 +36,23 @@ $doctor_count = $doctors_num->fetch_assoc();
     <span class="material-symbols-outlined">waving_hand</span>
 </h2>
 
-<div class="overview-body">
-    <a class="overview-item a" href="appointments/create-appointment.php">
+<!-- <div class="overview-body">
+    <div class="overview-item a">
         <span class="material-symbols-outlined round-icons">note_alt</span>
         <span class="overview-text">Book Appointment</span>
-    </a>
-    <a class="overview-item b" href="appointments/list-appointments.php">
+    </div>
+    <div class="overview-item b">
         <span class="material-symbols-outlined round-icons">view_list</span>
         <span class="overview-text"><?= $appointment_count['row_count'] ?> Appointments</span>
-    </a>
-    <a class="overview-item c" href="doctors/list-doctors.php">
+    </div>
+    <div class="overview-item c">
         <span class="material-symbols-outlined large-icons blue-icon">clinical_notes</span>
         <span class="overview-text"><?= $doctor_count['row_count'] ?> Active Doctors</span>
-    </a>
-    <a class="overview-item d" href="patients/add-patient.php">
+    </div>
+    <div class="overview-item d">
         <span class="material-symbols-outlined large-icons white-icon">person_add</span>
         <span class="overview-text">Add New Patient</span>
-    </a>
-</div>
+    </div>
+</div> -->
 
 <?= generatePageFoot() ?>
