@@ -48,6 +48,15 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	cursor: inherit;
+}
+
+.classic-table tr {
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+table.highlight tbody tr:hover {
+	cursor: pointer;
 }
 
 .classic-table td.clip-data {
@@ -56,4 +65,22 @@
 
 main div.content-box {
 	max-width: 70rem;
+}
+
+.classic-table .badge span {
+	font-size: 0.75rem;
+	padding: 0.3rem 0.5rem;
+	border-radius: 0.5rem;
+	white-space: nowrap;
+	letter-spacing: 1px;
+}
+
+.badge.success span {
+	background-color: var(--success-bg);
+	color: var(--success-text);
+}
+
+.badge.error span {
+	background-color: var(--error-bg);
+	color: var(--error-text);
 }

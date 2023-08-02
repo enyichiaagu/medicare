@@ -58,12 +58,13 @@ CREATE TABLE vital_signs(
 CREATE TABLE payments(
     id INT PRIMARY KEY AUTO_INCREMENT,
     payment_id VARCHAR(125) NOT NULL,
-    date_of_payment TIMESTAMP NOT NULL,
+    patient_id INT NOT NULL,
     entry_date TIMESTAMP NOT NULL,
-    amount VARCHAR(20) NOT NULL,
-    reason_for_payment VARCHAR(255),
-    recipient VARCHAR(125) NOT NULL,
-    paid BOOLEAN NOT NULL,
+    payment_date DATETIME,
+    amount INT NOT NULL,
+    reason VARCHAR(255),
+    recipient INT,
+    paid BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (recipient) REFERENCES staff(id),
     FOREIGN KEY (patient_id) REFERENCES patients(id)
 );

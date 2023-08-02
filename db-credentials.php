@@ -123,7 +123,13 @@
             "name" => "Bursary",
             "iconText" => "payments",
             "url" => "bursary",
-            "permission" => "bursary"
+            "permission" => "bursary",
+            "sub-menu" => [
+                [
+                    "title" => "List All Payments",
+                    "url" => "list-payments"
+                ]
+            ]
         ],
         [
             "name" => "Admin",

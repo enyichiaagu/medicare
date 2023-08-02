@@ -35,10 +35,8 @@ if ($appointments->num_rows > 0) {
 
 // Format the date as "d F" (e.g., "31 July")
 function formatDate($inputDate) {
-    $dateObj = new DateTime($inputDate);
-    $formatDay = $dateObj->format('d');
-    $formatMonth = str_split($dateObj->format('F'), 3)[0];
-    $formattedDate = "$formatDay $formatMonth";
+    $dateStr = strtotime($inputDate);
+    $formattedDate = date("d M", $dateStr);
     return $formattedDate;
 }
 

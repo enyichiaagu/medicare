@@ -23,9 +23,14 @@ function escapeSingleQuotes($str) {
     return str_replace("'", "\\'", $str);
 }
 
+function formatInput($value) {
+    if ($value === '') return null;
+    else return $value;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $full_name = $_POST['patient-name'];
+    $full_name = formatInput($_POST['patient-name']);
     $date_of_birth = $_POST['dob'];
     $gender = $_POST['gender'];
     $genotype = $_POST['genotype'];
@@ -41,31 +46,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conditionsString .= $condition . ', ';
     }
     $allergies = $_POST['allergies'];
-    $patient_id = uniqid();
 
-    // Query for adding a new Patient
-    $query = "INSERT INTO patients(id, patient_id, full_name, gender, date_of_birth, phone_no, residential_address, email_address, next_of_kin_name, next_of_kin_no, existing_medical_conditions, allergies, blood_group, genotype) VALUES (null, '$patient_id', '$full_name', '$gender', '$date_of_birth', '$phone_number', '$home_address', '$email_address', '$next_of_kin_name', '$next_of_kin_no', '$conditionsString', '$allergies', '$blood_group', '$genotype')";
+    if ($full_name !== null) {
 
-    // Get a response from db
-    $result = $mysqli->query($query);
-    $message = ["success", "Patient Added Successfully"];
+        $patient_id = uniqid();
+
+        // Query for adding a new Patient
+        $query = "INSERT INTO patients(patient_id, full_name, gender, date_of_birth, phone_no, residential_address, email_address, next_of_kin_name, next_of_kin_no, existing_medical_conditions, allergies, blood_group, genotype) VALUES ('$patient_id', '$full_name', '$gender', '$date_of_birth', '$phone_number', '$home_address', '$email_address', '$next_of_kin_name', '$next_of_kin_no', '$conditionsString', '$allergies', '$blood_group', '$genotype')";
+
+        // Get a response from db
+        $result = $mysqli->query($query);
+        $message = ["success", "Patient Added Successfully"];
+
+        // Fetch User Id from Database
+        $fetchUserQuery = "SELECT id FROM patients WHERE patient_id='$patient_id'";
+        $fetchedUser = $mysqli->query($fetchUserQuery);
+        $userId = $fetchedUser->fetch_assoc()['id'];
+
+        // Specify variables for the bursary
+        $registrationAmount = 1000;
+        $reason = 'Patient Registration';
+
+        // Query for creating a payment record
+        $payment_id = uniqid();
+        $timestamp = date('Y-m-d H:i:s');
+        $addPaymentQuery = "INSERT INTO payments(payment_id, entry_date, patient_id, amount, reason) VALUES('$payment_id', '$timestamp', '$userId', '$registrationAmount', '$reason')";
+        $savedPaymentRecord = $mysqli->query($addPaymentQuery);
+
+    } else {
+        $message = ['error', 'Something went wrong. Please try again later'];
+    }
 }
 
 ?>
 
 <?= generatePageHead('Add New Patient', 'forms.css'); ?>
 
-<?php if (isset($message[0]) && $message[0] === 'success') { ?>
+<?php if (isset($message[0]) && $message[0] === 'error') { ?>
+    <div class="error-message notification"><span class="material-symbols-outlined">error</span><?= $message[1] ?></div>
+<?php } elseif (isset($message[0]) && $message[0] === 'success') { ?>
     <div class="success-message notification"><?= $message[1]?><span class="material-symbols-outlined">check_circle</span></div>
 <?php } ?>
 
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="classic-form">
     <h2 class="secondary-text">Personal Information</h2>
-    <input type="name" class="full" id="patient-name" placeholder ="Full Name" name="patient-name">
+    <input type="name" class="full" id="patient-name" placeholder ="Full Name" name="patient-name" required>
     <div class="split">
-        <input type="text" id="dob" placeholder="Date of Birth" class="date-box" name="dob">
+        <input type="text" id="dob" placeholder="Date of Birth" class="date-box" name="dob" required>
         <!-- Gender -->
-        <select id="gender" name="gender">
+        <select id="gender" name="gender" required>
             <option value="" selected>Gender</option>
             <?php array_map(function ($item) { ?>
                 <option value=<?= $item ?>>
@@ -96,10 +125,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <h2 class="secondary-text">Identification Details</h2>
-    <input type="text" id="home-address" placeholder="Residential Address" class="full" min="10" name="home-address">
+    <input type="text" id="home-address" placeholder="Residential Address" class="full" min="10" name="home-address" required>
     <div class="split">
-        <input type="tel" id="phone" name="phone" placeholder ="Phone Number">
-        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="tel" id="phone" name="phone" placeholder ="Phone Number" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
     </div>
 
     <h2 class="secondary-text">Emergency Contact Information</h2>
