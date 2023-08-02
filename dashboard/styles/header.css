@@ -1,48 +1,48 @@
 h1 span {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 header {
-	padding: 0.7rem 2rem;
-	display: flex;
-	justify-content: space-between;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	background-color: var(--black);
-	z-index: 10;
+  padding: 0.7rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: var(--black);
+  z-index: 10;
 }
 
 header .material-symbols-outlined {
-	font-size: 2rem;
-	color: var(--white);
-	max-width: 2rem;
-	overflow: hidden;
+  font-size: 2rem;
+  color: var(--white);
+  max-width: 2rem;
+  overflow: hidden;
 }
 
 header .close-button span {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 header .header-align-center {
-	display: flex;
-	align-items: center;
-	column-gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
 }
 
 .header-align-center .profile {
-	display: flex;
-	flex-direction: column;
-	row-gap: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.1rem;
 }
 
 .header-align-center .staff-name,
 .header-align-center .position-name {
-	color: var(--white);
-	font-family: var(--secondary-font);
+  color: var(--white);
+  font-family: var(--secondary-font);
 }
 
 .header-align-center .position-name {
-	font-size: 0.8rem;
-	letter-spacing: 1px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
 }
