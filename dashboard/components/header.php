@@ -11,6 +11,9 @@
         <span class="material-symbols-outlined">
             account_circle
         </span>
-        <span class="staff-name secondary-text">Jessica Gabriel</span>
+        <div class="profile">
+            <span class="staff-name secondary-text"><?= $_SESSION['user']['full_name'] ?></span>
+            <span class="position-name"><?= $_SESSION['user']['position'] ?></span>
+        </div>
     </div>
 </header>

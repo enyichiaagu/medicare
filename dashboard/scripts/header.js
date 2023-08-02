@@ -1,8 +1,8 @@
 const closeButton = document.querySelector('header .close-button')
-const sidebar = document.querySelector('aside.sidebar')
+const mainContent = document.querySelector('main.main-content')
 
 closeButton.addEventListener('click', ToggleSidebar)
 
 function ToggleSidebar() {
-	sidebar.classList.toggle('close-sidebar')
+	mainContent.classList.toggle('widen')
 }

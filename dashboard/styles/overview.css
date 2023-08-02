@@ -1,0 +1,91 @@
+.overview-greeting {
+	margin: 1rem 0;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.overview-greeting span.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 900, 'GRAD' 0, 'opsz' 48;
+	color: var(--grey);
+	max-width: 2rem;
+	overflow: hidden;
+}
+
+.overview-body {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(2, 13rem);
+	grid-template-areas:
+		'book book book book num num num'
+		'doctors doctors doctors patient patient patient patient';
+	gap: 1.5rem;
+}
+
+.overview-body .overview-item {
+	background-color: var(--white);
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 2rem 2.5rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.overview-body .overview-item:hover {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.overview-body .overview-item.a {
+	grid-area: book;
+}
+
+.overview-body .overview-item.b {
+	grid-area: num;
+}
+
+.overview-body .overview-item.c {
+	grid-area: doctors;
+}
+
+.overview-body .overview-item.d {
+	grid-area: patient;
+	background-color: var(--blue);
+	color: var(--white);
+}
+
+.overview-body .overview-item .overview-text {
+	font-size: inherit;
+	color: inherit;
+	letter-spacing: 2px;
+}
+
+.overview-body .large-icons {
+	font-size: 5rem;
+	cursor: inherit;
+	max-width: 5rem;
+	max-height: 5rem;
+	overflow: hidden;
+}
+
+.overview-body .blue-icon {
+	color: var(--blue);
+}
+
+.overview-body .white-icon {
+	color: var(--white);
+}
+
+.overview-body .round-icons {
+	background-color: var(--light-grey);
+	width: fit-content;
+	font-size: 2rem;
+	padding: 1rem;
+	border-radius: 50%;
+	cursor: inherit;
+	max-width: 4rem;
+	max-height: 4rem;
+	overflow: hidden;
+}

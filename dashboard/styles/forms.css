@@ -1,0 +1,84 @@
+h2.secondary-text {
+	margin-top: 2rem;
+	font-size: 1.4rem;
+}
+
+form.classic-form {
+	position: relative;
+}
+
+form.classic-form input,
+form.classic-form select,
+form.classic-form textarea {
+	background-color: var(--white);
+	padding: 0.5rem 0 0.5rem 2rem;
+	border-radius: 0.15rem;
+	border: 3px solid var(--grey);
+}
+
+form.classic-form input::placeholder,
+form.classic-form select,
+form.classic-form textarea::placeholder {
+	color: var(--grey);
+	font-weight: normal;
+}
+
+form.classic-form input,
+form.classic-form textarea {
+	font-weight: bold;
+}
+
+form.classic-form .check-container {
+	display: flex;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+form.classic-form input[type='checkbox'] {
+	position: absolute;
+	opacity: 0;
+}
+
+form.classic-form input[type='checkbox'] + label {
+	position: relative;
+	padding-left: 2rem;
+	display: block;
+}
+
+form.classic-form input[type='checkbox'] + label::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: -0.25rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 3px solid var(--grey);
+	border-radius: 0.4rem;
+	text-align: center;
+	font-weight: bold;
+	background-color: var(--white);
+}
+
+form.classic-form input[type='checkbox']:checked + label::before {
+	content: '✓';
+}
+
+form.classic-form .full {
+	margin: 0.5rem 0;
+	display: block;
+	width: 100%;
+}
+
+form.classic-form .split {
+	display: flex;
+	column-gap: 0.5rem;
+	margin: 0.5rem 0;
+}
+
+form.classic-form .split > * {
+	flex: 1;
+}
+
+form.classic-form .button-container {
+	text-align: right;
+}

@@ -1,133 +1,134 @@
 h1 span {
-  font-size: 3rem;
+	font-size: 3rem;
 }
 
 header {
-  padding: 3rem 0 3rem 3rem;
+	padding: 3rem 0 3rem 3rem;
 }
 
 main {
-  margin: 0 auto;
-  max-width: 40rem;
+	margin: 0 auto;
+	max-width: 40rem;
 }
 
 .greeting {
-  padding: 0.5rem 0;
+	padding: 0.5rem 0;
 }
 
 .greeting-sub {
-  padding: 0.5rem 0;
-  font-size: 0.9rem;
-  color: var(--grey);
+	padding: 0.5rem 0;
+	font-size: 0.9rem;
+	color: var(--grey);
 }
 
 .field {
-  margin: 2rem 0 1rem;
-  border: 3px solid var(--black);
-  border-radius: 0.3rem;
-  display: flex;
-  background-color: var(--white);
+	margin: 2rem 0 1rem;
+	border: 3px solid var(--black);
+	border-radius: 0.3rem;
+	display: flex;
+	background-color: var(--white);
 }
 
 .field .start-icon {
-  border-right: 1px solid var(--grey);
-  background-color: var(--light-grey);
+	border-right: 1px solid var(--grey);
+	background-color: var(--light-grey);
 }
 
 .field input {
-  padding: 1rem;
-  display: block;
-  flex-grow: 1;
-  border: none;
-  outline: none;
-  transition-duration: 200ms;
-  background-color: inherit;
+	padding: 1rem;
+	display: block;
+	flex-grow: 1;
+	border: none;
+	outline: none;
+	transition-duration: 200ms;
+	background-color: inherit;
 }
 
 .field input:autofill {
-  background-color: inherit;
+	background-color: inherit;
 }
 
 .field input#password {
-  letter-spacing: 0.5rem;
+	letter-spacing: 0.5rem;
 }
 
 .field input#password::placeholder {
-  letter-spacing: normal;
+	letter-spacing: normal;
 }
 
 .field input:placeholder-shown,
 .field input:placeholder-shown + #visibility {
-  background-color: var(--light-grey);
+	background-color: var(--light-grey);
 }
 
 .field input:hover,
 .field input:hover + #visibility,
 .field input:focus,
 .field input:focus + #visibility {
-  background-color: inherit;
+	background-color: inherit;
 }
 
 .field span.material-symbols-outlined {
-  display: block;
-  max-width: 2.5rem;
-  overflow: hidden;
-  line-height: normal;
-  font-size: 2.5rem;
-  color: var(--grey);
-  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 48;
+	display: block;
+	max-width: 2.5rem;
+	overflow: hidden;
+	line-height: normal;
+	font-size: 2.5rem;
+	color: var(--grey);
+	font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;
 }
 
 .field span#visibility {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .forgot-password {
-  text-align: right;
-  margin-bottom: 1rem;
+	text-align: right;
+	margin-bottom: 1rem 0;
 }
 
 .forgot-password a {
-  color: var(--blue);
-  text-decoration: none;
+	color: var(--blue);
+	text-decoration: none;
 }
 
 .forgot-password a:hover {
-  color: var(--bg-blue);
+	color: var(--bg-blue);
 }
 
 button#submit {
-  padding: 1em;
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: #535960;
-  color: var(--white);
-  border-radius: 0.3em;
+	padding: 1rem;
+	display: block;
+	width: 100%;
+	border: none;
+	background-color: var(--button-grey);
+	color: var(--white);
+	border-radius: 0.3em;
+	margin: 1rem 0;
 }
 
 button#submit:hover {
-  background-color: var(--black);
+	background-color: var(--black);
 }
 
 .back-option {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
+	margin-top: 1rem;
+	display: flex;
+	justify-content: center;
 }
 
 .back-option a {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .back-option a:hover,
 .back-option a:hover > span.material-symbols-outlined {
-  color: var(--bg-blue);
+	color: var(--bg-blue);
 }
 
 span.back-icon {
-  margin: 0 0.5rem;
-  max-width: 2rem;
-  overflow: none;
+	margin: 0 0.5rem;
+	max-width: 2rem;
+	overflow: none;
 }

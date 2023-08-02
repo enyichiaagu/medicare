@@ -16,6 +16,8 @@ header {
 header .material-symbols-outlined {
   font-size: 2rem;
   color: var(--white);
+  max-width: 2rem;
+  overflow: hidden;
 }
 
 header .close-button span {
@@ -25,10 +27,22 @@ header .close-button span {
 header .header-align-center {
   display: flex;
   align-items: center;
+  column-gap: 0.5rem;
 }
 
-.header-align-center .staff-name {
-  margin-left: 1rem;
+.header-align-center .profile {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.1rem;
+}
+
+.header-align-center .staff-name,
+.header-align-center .position-name {
   color: var(--white);
   font-family: var(--secondary-font);
+}
+
+.header-align-center .position-name {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
 }

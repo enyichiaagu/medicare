@@ -4,27 +4,12 @@ aside * {
 
 aside.sidebar {
   width: 16rem;
-  transition: width 200ms ease-in;
   background-color: var(--bg-blue);
-}
-
-aside .menu-options {
   display: flex;
   flex-direction: column;
   height: 100vh;
   position: fixed;
-  width: inherit;
-  background-color: inherit;
-  user-select: none;
-}
-
-aside.close-sidebar {
-  width: 0;
-}
-
-aside.close-sidebar .menu-options {
-  position: static;
-  width: 100%;
+  z-index: 0;
 }
 
 aside div.list-container {
@@ -54,7 +39,7 @@ div.list-container nav::-webkit-scrollbar-thumb {
   visibility: hidden;
 }
 
-aside:hover div.list-container nav::-webkit-scrollbar-thumb {
+div.list-container:hover nav::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 
@@ -80,7 +65,7 @@ aside ul.navigation > li span.material-symbols-outlined,
   overflow: hidden;
   font-size: 2rem;
   margin: 0 1rem;
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 48;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
 }
 
 aside ul.navigation > li span.down-arrow {
@@ -118,7 +103,6 @@ li.active-sub-link {
 
 .footer {
   background-color: var(--bg-blue);
-  user-select: none;
 }
 
 .footer button {
