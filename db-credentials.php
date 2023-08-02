@@ -49,7 +49,7 @@
             "name" => "Appointments",
             "iconText" => "calendar_month",
             "url" => "appointments",
-            "permission" => "opd",
+            "permission" => "opd, nursing",
             "sub-menu" => [
                 [
                     "title" => "Create New Appointment",
@@ -81,7 +81,7 @@
             "name" => "Nurses",
             "iconText" => "lda",
             "url" => "nurses",
-            "permission" => "nursing",
+            "permission" => "nursing, physician",
             "sub-menu" => [
                 [
                     "title" => "Take Vital Signs",
@@ -117,7 +117,7 @@
             "name" => "Ward",
             "iconText" => "ward",
             "url" => "ward",
-            "permission" => "nursing, opd",
+            "permission" => "nursing,opd,physician",
         ],
         [
             "name" => "Bursary",

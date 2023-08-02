@@ -18,6 +18,28 @@
 		return count(explode('/', $_SERVER['PHP_SELF'])) === 4 ? '.' : '..';
 	}
 
+	function getCurrentFolder() {
+		return str_replace(".php", "", explode('/', $_SERVER['PHP_SELF'])[3]);
+	}
+
+	function allUsersNotPermitted() {
+		$notOverview = getCurrentFolder() !== 'overview';
+		$notManager = $_SESSION['user']['unit'] !== 'management';
+		return $notOverview && $notManager;
+	}
+
+	function hasPermission() {
+		global $page_structure;
+		$menuIndex = array_search(getCurrentFolder(), array_column($page_structure, 'url'));
+		return (
+			$menuIndex !== false && 
+			stripos(
+				$page_structure[$menuIndex]['permission'], 
+				$_SESSION['user']['unit']
+			) !== false
+		);
+	}
+
 	function generatePageHead($pageTitle, $styleFormat='') {
 
 		// Initialize path of urls
@@ -34,6 +56,11 @@
 			header("Location: $path/../login.php");
 			exit;
 
+		// Send user to Overview if they wander too far
+		} elseif (allUsersNotPermitted() && !hasPermission()) {
+			// Redirect to Overview page
+			header("Location: $path/overview.php");
+			exit;
 		}
 ?>
 
