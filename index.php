@@ -13,6 +13,9 @@
 	// Fetch Project Essentials ($hospital_units, $mysqli)
 	require_once('db-credentials.php');
 
+	// Set default Timezone
+	date_default_timezone_set('Africa/Lagos');
+
 	// Function to check the relative path type to use
 	function relativePath() {
 		return count(explode('/', $_SERVER['PHP_SELF'])) === 4 ? '.' : '..';

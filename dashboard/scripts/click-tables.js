@@ -3,7 +3,6 @@ const rowsArray = Array.from(rows)
 
 rowsArray.map((row) => {
 	row.addEventListener('click', ({ currentTarget }) => {
-		const href = currentTarget.dataset.href
-		window.location.href = href
+		window.location.href = currentTarget.dataset.href
 	})
 })

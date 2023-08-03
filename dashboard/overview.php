@@ -2,7 +2,7 @@
 
 require_once('../index.php');
 
-$currentTime = (int)date('H');
+$currentTime = date('H');
 
 function getGreeting($time) {
     $morningStart = 6;

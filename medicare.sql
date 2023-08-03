@@ -59,7 +59,7 @@ CREATE TABLE payments(
     id INT PRIMARY KEY AUTO_INCREMENT,
     payment_id VARCHAR(125) NOT NULL,
     patient_id INT NOT NULL,
-    entry_date TIMESTAMP NOT NULL,
+    entry_date DATETIME NOT NULL,
     payment_date DATETIME,
     amount INT NOT NULL,
     reason VARCHAR(255),

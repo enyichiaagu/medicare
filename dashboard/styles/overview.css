@@ -10,6 +10,7 @@
 	color: var(--grey);
 	max-width: 2rem;
 	overflow: hidden;
+	transform: rotate(-20deg);
 }
 
 .overview-body {
