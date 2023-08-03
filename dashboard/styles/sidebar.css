@@ -10,6 +10,7 @@ aside.sidebar {
   height: 100vh;
   position: fixed;
   z-index: 0;
+  user-select: none;
 }
 
 aside div.list-container {
@@ -46,6 +47,7 @@ div.list-container:hover nav::-webkit-scrollbar-thumb {
 aside ul.navigation > li {
   display: flex;
   flex-direction: column;
+  user-select: none;
 }
 
 aside ul.navigation > li .option-display:hover,
@@ -113,6 +115,8 @@ li.active-sub-link {
   border: none;
   border-top: 1px solid var(--blue);
   background-color: transparent;
+  user-select: none;
+  cursor: pointer;
 }
 
 .footer button .material-symbols-outlined {
