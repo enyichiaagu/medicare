@@ -18,6 +18,8 @@ if ($doctors->num_rows > 0) {
 
 <?= generatePageHead('List all Doctors', 'tables.css') ?>
 
+<h2 class="heading-text">Available Doctors</h2>
+
 <div>
     <table class="classic-table">
         <thead>

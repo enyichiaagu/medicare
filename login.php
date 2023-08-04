@@ -4,11 +4,7 @@
 	session_start();
 
 	// Import database credentials
-	require_once('db-credentials.php');
-	// $hostname
-	// $db_username
-	// $db_password
-	// $database
+	require_once('helpers/db-credentials.php');
 
 	function redirectUser() {
 		header('Location: dashboard/overview.php');

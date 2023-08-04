@@ -11,7 +11,9 @@
 	session_start();
 
 	// Fetch Project Essentials ($hospital_units, $mysqli)
-	require_once('db-credentials.php');
+	require_once('helpers/db-credentials.php');
+
+	require_once('helpers/db-queries.php');
 
 	// Set default Timezone
 	date_default_timezone_set('Africa/Lagos');
@@ -43,7 +45,7 @@
 		);
 	}
 
-	function generatePageHead($pageTitle, $styleFormat='') {
+	function generatePageHead($pageTitle, $styleFormat=null, $secondaryStyle=null) {
 
 		// Initialize path of urls
 		$path = relativePath();
@@ -76,7 +78,8 @@
 		<link rel="stylesheet" href="<?= $path ?>/../css/utils.css">
 		<link rel="stylesheet" href="<?= $path ?>/styles/header.css">
 		<link rel="stylesheet" href="<?= $path ?>/styles/sidebar.css">
-		<?= $styleFormat === '' ? '' : "<link rel='stylesheet' href='$path/styles/$styleFormat'>" ?>
+		<?= $styleFormat ? "<link rel='stylesheet' href='$path/styles/$styleFormat'>" : null ?>
+		<?= $secondaryStyle ? "<link rel='stylesheet' href='$path/styles/$secondaryStyle'>" : null ?>
 		<title>Medicare - <?= $pageTitle ?> </title>
 	</head>
 	<body>

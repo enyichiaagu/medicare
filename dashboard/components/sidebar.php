@@ -14,7 +14,7 @@
     }
 
     function isCurrentSubPage($folder, $url) {
-        return '/medicare/dashboard/' . $folder . '/' . $url . '.php' === $_SERVER['REQUEST_URI'];
+        return '/medicare/dashboard/' . $folder . '/' . $url . '.php' === strtok($_SERVER['REQUEST_URI'], '?');
     }
 
     function isCurrentSet($folder) {

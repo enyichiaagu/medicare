@@ -36,7 +36,7 @@ function formatAmount($amount) {
 
 <?= generatePageHead('Bursary', 'tables.css') ?>
 
-<h2>Bursary</h2>
+<h2 class="heading-text">Bursary</h2>
 <table class="classic-table highlight">
     <thead>
         <tr>
@@ -51,7 +51,7 @@ function formatAmount($amount) {
     </thead>
     <tbody>
     <?php array_map(function ($item) { ?>
-        <tr title="Click to view details" class="click-item" data-href="<?= 'payment.php?id='.$item['payment_id'] ?>">
+        <tr data-href="<?= 'payment.php?id='.$item['payment_id'] ?>">
             <td><?= convertToDate($item['entry_date']) ?></td>
             <td><?= convertToTime($item['entry_date']) ?></td>
             <td><?= $item['full_name'] ?></td>
