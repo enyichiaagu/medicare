@@ -21,11 +21,18 @@ function findAge($dob) {
     return date_diff($today, $birthDate)->format('%y');
 }
 
+function formatTime($time) {
+    $start = date('h:i', strtotime($time));
+    $end = date('h:i A', strtotime($time) + (30 * 60));
+    return "$start - $end";
+}
+
 ?>
 <?= generatePageHead('My Appointments', 'tables.css') ?>
 
 <h2 class="heading-text">Appointments</h2>
 
+<?php if (isset($appointmentsArray)) { ?>
 <table class="classic-table highlight">
     <thead>
         <tr>
@@ -40,8 +47,8 @@ function findAge($dob) {
     <tbody>
         <?php array_map(function ($item){ ?>
             <tr data-href="<?= 'report.php?id='.$item['appointment_id'] ?>">
-                <td>25 Dec</td>
-                <td>9:00 - 9:30 AM</td>
+                <td><?= date('d M', strtotime($item['appointment_date'])) ?></td>
+                <td><?= formatTime($item['appointment_time']) ?></td>
                 <td><?= $item['full_name'] ?></td>
                 <td><?= $item['gender'] ?></td>
                 <td><?= findAge($item['date_of_birth']) ?></td>
@@ -50,5 +57,8 @@ function findAge($dob) {
         <?php }, $appointmentsArray); ?>
     </tbody>
 </table>
+<?php } else { ?>
+<div class="error-message notification"><span class="material-symbols-outlined">error</span>No Appointments Found</div>
+<?php } ?>
 
 <?= generatePageFoot('click-tables.js') ?>
