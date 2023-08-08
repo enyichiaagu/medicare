@@ -75,9 +75,9 @@
             ]
         ],
         [
-            "name" => "Nurses",
+            "name" => "Signs",
             "iconText" => "lda",
-            "url" => "nurses",
+            "url" => "signs",
             "permission" => "nursing, physician",
             "sub-menu" => [
                 [
