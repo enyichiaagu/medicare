@@ -1,57 +1,53 @@
-const selectUnit = document.querySelector('select#unit')
-const selectPosition = document.querySelector('select#position')
+const selectUnit = document.querySelector("select#unit");
+const selectPosition = document.querySelector("select#position");
+const passwordInput = document.querySelector("#staff-password");
+const toggleIcon = document.querySelector(".visibility");
 
-const defaultSelectPosition = selectPosition.innerHTML
+const defaultSelectPosition = selectPosition.innerHTML;
 
 const units = [
-	{
-		unitName: 'opd',
-		positions: ['Receptionist'],
-	},
-	{
-		unitName: 'management',
-		positions: ['Dashboard Administrator'],
-	},
-	{
-		unitName: 'pharmacy',
-		positions: [
-			'Pharmacist',
-			'Pharmacy Intern',
-			'Pharmacy Operations Manager',
-		],
-	},
-	{
-		unitName: 'nursing',
-		positions: ['Nurse', 'Auxillary Nurse'],
-	},
-	{
-		unitName: 'physician',
-		positions: ['Doctor'],
-	},
-	{
-		unitName: 'lab',
-		positions: ['Lab Technician'],
-	},
-	{
-		unitName: 'bursary',
-		positions: ['Head Accountant'],
-	},
-]
+  {
+    unitName: "opd",
+    positions: ["Receptionist"],
+  },
+  {
+    unitName: "management",
+    positions: ["Dashboard Administrator"],
+  },
+  {
+    unitName: "pharmacy",
+    positions: ["Pharmacist", "Pharmacy Intern", "Pharmacy Operations Manager"],
+  },
+  {
+    unitName: "nursing",
+    positions: ["Nurse", "Auxillary Nurse"],
+  },
+  {
+    unitName: "physician",
+    positions: ["Doctor"],
+  },
+  {
+    unitName: "lab",
+    positions: ["Lab Technician"],
+  },
+  {
+    unitName: "bursary",
+    positions: ["Head Accountant"],
+  },
+];
 
-selectUnit.addEventListener('change', ({ target }) => {
-	let htmlOptions = ''
+selectUnit.addEventListener("change", ({ target }) => {
+  let htmlOptions = "";
 
-	const filteredUnits = units.filter((unit) => unit.unitName === target.value)
-	if (filteredUnits.length === 1) {
-		htmlOptions = filteredUnits[0].positions.reduce(
-			(accumulator, current) => {
-				return (
-					accumulator +
-					`<option value='${current}'>${current}</option>`
-				)
-			},
-			''
-		)
-	}
-	selectPosition.innerHTML = defaultSelectPosition + htmlOptions
-})
+  const filteredUnits = units.filter((unit) => unit.unitName === target.value);
+  if (filteredUnits.length === 1) {
+    htmlOptions = filteredUnits[0].positions.reduce((accumulator, current) => {
+      return accumulator + `<option value='${current}'>${current}</option>`;
+    }, "");
+  }
+  selectPosition.innerHTML = defaultSelectPosition + htmlOptions;
+});
+
+toggleIcon.addEventListener("click", () => {
+  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+});
