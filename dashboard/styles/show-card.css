@@ -1,0 +1,47 @@
+main div.content-box {
+	max-width: 50rem;
+}
+
+div.show-card {
+	background-color: var(--white);
+	padding: 1rem 1rem;
+	margin-top: 2rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.show-card .card-header {
+	border-bottom: 3px solid var(--light-grey);
+}
+
+.card-header .patient-name {
+	font-size: 2rem;
+	font-weight: bold;
+	display: block;
+}
+
+.card-header .patient-id {
+	font-weight: bold;
+	display: block;
+	margin: 0.5rem 0 1rem;
+	text-transform: uppercase;
+}
+
+.show-card .card-body {
+	margin: 1rem 0 0;
+}
+
+.show-card .item-label {
+	display: inline-block;
+	min-width: 13rem;
+	color: var(--grey);
+}
+
+.card-body div {
+	margin: 0.5rem 0;
+}
+
+.card-body .item-value {
+	font-weight: bold;
+	color: var(--grey);
+}

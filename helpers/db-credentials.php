@@ -4,9 +4,6 @@
     $db_username = 'root';
     $db_password = '';
     $database = 'medicare';
-    
-    // Connect to the database
-    $mysqli = new mysqli($hostname, $db_username, $db_password, $database);
 
     $hospital_units = [
         [
@@ -106,18 +103,36 @@
             "iconText" => "medication",
             "url" => "pharmacy",
             "permission" => "pharmacy",
+            "sub-menu" => [
+                [
+                    "title" => "List Requests",
+                    "url" => "requests"
+                ]
+            ]
         ],
         [
             "name" => "Laboratory",
             "iconText" => "biotech",
             "url" => "laboratory",
             "permission" => "lab",
+            "sub-menu" => [
+                [
+                    "title" => "List Records",
+                    "url" => "record-list"
+                ]
+            ]
         ],
         [
             "name" => "Ward",
             "iconText" => "ward",
             "url" => "ward",
             "permission" => "nursing,opd,physician",
+            "sub-menu" => [
+                [
+                    "title" => "List Ward Patients",
+                    "url" => "ward-list"
+                ]
+            ]
         ],
         [
             "name" => "Bursary",

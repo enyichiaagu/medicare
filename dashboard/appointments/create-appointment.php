@@ -92,7 +92,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </select>
     <div class="split">
         <input type="text" class="date-box min-today" placeholder="Date of Appointment" name="appointment-date">
-        <input type="text" name="appointment_time" id="" class="time-box" placeholder="Time" min="09:00" max="16:30" name="appointment-time">
+        <!-- <input type="text" name="appointment_time" id="" class="time-box" placeholder="Time" min="09:00" max="16:30" name="appointment-time"> -->
+        <select name="appointment_time" id="appointment_time">
+            <option value="">Time</option>
+            <option value="09:00">9:00 - 9:30 AM</option>
+            <option value="09:30">9:30 - 10:00 AM</option>
+            <option value="10:00">10:00 - 10:30 AM</option>
+            <option value="10:30">10:30 - 11:00 AM</option>
+            <option value="11:00">11:00 - 11:30 AM</option>
+            <option value="11:30">11:30 - 12:00 PM</option>
+            <option value="01:00">1:00 - 1:30 PM</option>
+            <option value="01:30">1:30 - 2:00 PM</option>
+            <option value="02:00">2:00 - 2:30 PM</option>
+            <option value="02:30">2:30 - 3:00 PM</option>
+        </select>
     </div>
     <select name="doctor-id" class="full">
         <option value="" selected>Select Doctor</option>

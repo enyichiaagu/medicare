@@ -91,3 +91,13 @@ main div.content-box {
 	background-color: var(--error-bg);
 	color: var(--error-text);
 }
+
+.badge.pending span {
+	background-color: var(--pending);
+	color: var(--blue);
+}
+
+.badge.new span {
+	background-color: var(--new-bg);
+	color: var(--new-text);
+}

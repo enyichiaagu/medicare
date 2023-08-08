@@ -16,6 +16,9 @@
 	--success-text: #1dbd1d;
 	--error-bg: #f8d0c8;
 	--error-text: #e71010;
+	--pending: #cdd3ff;
+	--new-text: #cc02ff;
+	--new-bg: #f2bfff;
 }
 
 * {
@@ -44,7 +47,7 @@ h4 {
 	font-size: 1.3rem;
 }
 
-h2.header-text {
+h2.heading-text {
 	margin: 2rem 0 1rem;
 }
 
@@ -105,6 +108,7 @@ div.notification {
 	align-items: center;
 	border-radius: 0.3rem;
 	margin-top: 1rem;
+	max-width: 50rem;
 }
 
 div.notification span.material-symbols-outlined {
