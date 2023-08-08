@@ -91,7 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h2 class="secondary-text">Dashboard Details</h2>
     <input type="email" name="staff-email" id="staff-email" class="full" placeholder="New Staff Email" required>
-    <input type="password" name="staff-password" id="staff-password" class="full" placeholder="New Staff Password" required>
+    <div class="password-container">
+        <input type="password" name="staff-password" id="staff-password" class="full" placeholder="New Staff Password" required>
+        <span class="material-symbols-outlined visibility">visibility</span>
+    </div>
     <div class="button-container">
         <button class="submit default-button">Submit</button>
     </div>

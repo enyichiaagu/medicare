@@ -25,4 +25,4 @@
         <button class="submit default-button">Submit</button>
     </div>
 </form>
-<?= generatePageFoot('forms/other-staff.js') ?>
+<?= generatePageFoot() ?>
