@@ -5,7 +5,7 @@ require_once('../../index.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = $_POST['email'];
-    $patientInfo = fetchPatientByEmail($email);
+    $patientInfo = fetchProfileByEmail($email, 'patients');
 
     if ($patientInfo) {
         $patientId = $patientInfo['id'];

@@ -2,8 +2,8 @@
 
 require_once('../../index.php');
 
-$searchEmail = isset($_GET['search']) ? $_GET['search'] : null;
-$patient = isset($searchEmail) ? fetchPatientByEmail($searchEmail) : null;
+$searchEmail = isset($_GET['email']) ? $_GET['email'] : null;
+$patient = isset($searchEmail) ? fetchProfileByEmail($searchEmail, 'patients') : null;
 
 ?>
 
@@ -15,7 +15,7 @@ $patient = isset($searchEmail) ? fetchPatientByEmail($searchEmail) : null;
             search
         </span>
     </span>
-    <input type="email" name="search" id="search" placeholder="Search Patient Email" class="input-bar" value='<?= $searchEmail ?>' required>
+    <input type="email" name="email" id="search" placeholder="Search Patient Email" class="input-bar" value='<?= $searchEmail ?>' required>
     <button class="default-button">Submit</button>
 </form>
 <?php if (isset($searchEmail) && isset($patient) && $patient !== false) { ?>
