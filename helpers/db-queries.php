@@ -15,4 +15,10 @@ function fetchPatientByEmail($email) {
     return false;
 }
 
+function saveRecord($query) {
+    global $mysqli;
+    $result = $mysqli->query($query);
+    return true;
+}
+
 ?>

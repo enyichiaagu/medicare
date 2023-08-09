@@ -43,14 +43,12 @@ CREATE TABLE appointments(
 );
 
 CREATE TABLE vital_signs(
-    ID INT PRIMARY KEY AUTO_INCREMENT,
-    patient_id INT NOT NULL,
+    patient_id INT PRIMARY KEY NOT NULL,
     blood_pressure VARCHAR(20) NOT NULL,
     pulse_rate VARCHAR(20) NOT NULL,
     body_weight VARCHAR(20) NOT NULL,
     body_temperature VARCHAR(20) NOT NULL,
     urine_composition VARCHAR(255),
-    oxygen_saturation VARCHAR(255),
     last_updated TIMESTAMP,
     FOREIGN KEY (patient_id) REFERENCES patients(id)
 );

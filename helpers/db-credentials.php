@@ -161,8 +161,8 @@
                     "url" => "list-doctors"
                 ],
                 [
-                    "title" => "List All Staff",
-                    "url" => "list-staff"
+                    "title" => "Search Staff",
+                    "url" => "search-staff"
                 ]
             ],
         ]

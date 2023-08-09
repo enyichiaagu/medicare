@@ -15,7 +15,7 @@
 <div>
     <table class="classic-table highlight">
         <thead>
-            <tr data-href="ward-report?id=bdj78382gv">
+            <tr>
                 <th>Date Admitted</th>
                 <th>Time Admitted</th>
                 <th>Patient Name</th>
@@ -26,11 +26,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr data-href="entry.php">
                 <td>12 Dec</td>
                 <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
+                <td>Victor Abraham</td>
+                <td>abrahmavictor@gmail.com</td>
                 <td>Male</td>
                 <td>C5</td>
                 <td>5</td>
@@ -38,8 +38,8 @@
             <tr>
                 <td>12 Dec</td>
                 <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
+                <td>Victor Abraham</td>
+                <td>abrahmavictor@gmail.com</td>
                 <td>Male</td>
                 <td>C5</td>
                 <td>5</td>
@@ -47,8 +47,8 @@
             <tr>
                 <td>12 Dec</td>
                 <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
+                <td>Victor Abraham</td>
+                <td>abrahmavictor@gmail.com</td>
                 <td>Male</td>
                 <td>C5</td>
                 <td>5</td>
@@ -56,8 +56,8 @@
             <tr>
                 <td>12 Dec</td>
                 <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
+                <td>Victor Abraham</td>
+                <td>abrahmavictor@gmail.com</td>
                 <td>Male</td>
                 <td>C5</td>
                 <td>5</td>

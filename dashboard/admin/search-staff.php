@@ -2,12 +2,10 @@
 
 require_once('../../index.php');
 
-$searchEmail = isset($_GET['search']) ? $_GET['search'] : null;
-$patient = isset($searchEmail) ? fetchPatientByEmail($searchEmail) : null;
 
 ?>
 
-<?= generatePageHead('Find A Patient', 'tables.css', 'show-card.css') ?>
+<?= generatePageHead('All Staff', 'tables.css', 'show-card.css') ?>
 
 <form class="search-form">
     <span class="search-icon">
@@ -15,9 +13,10 @@ $patient = isset($searchEmail) ? fetchPatientByEmail($searchEmail) : null;
             search
         </span>
     </span>
-    <input type="email" name="search" id="search" placeholder="Search Patient Email" class="input-bar" value='<?= $searchEmail ?>' required>
+    <input type="email" name="search" id="search" placeholder="Search Staff Email" class="input-bar" value='' required>
     <button class="default-button">Submit</button>
 </form>
+
 <?php if (isset($searchEmail) && isset($patient) && $patient !== false) { ?>
 <div class="show-card">
     <div class="card-header">
