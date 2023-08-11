@@ -2,7 +2,24 @@
 
 require_once('../../index.php');
 
-$appointmentId = $_GET['id'];
+isset($_GET['id']) ? $appointmentId = $_GET['id'] : null;
+
+if (!isset($appointmentId)){
+
+    header('Location: my-appointments.php');
+    exit;
+
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $observations = $_POST['observations'];
+    $finished = true;
+    $save_query = "UPDATE appointments SET observations = '$observations', finished = '$finished' WHERE appointment_id = '$appointmentId'";
+    save_record($save_query);
+
+    header('Location: my-appointments.php');
+    exit;
+
+}
 
 $appointmentDetails = fetch_database_row($appointmentId, 'appointment_id', 'appointments');
 $patientDetails = fetch_database_row($appointmentDetails['patient_id'], 'id', 'patients');
@@ -86,7 +103,7 @@ $vitalSigns = [
 
 <?= generatePageHead("Doctor's Appointment Report", 'forms.css') ?>
 
-<form class="classic-form" action="POST">
+<form class="classic-form" method="POST">
 
     <h2 class="secondary-text">Patient's Personal Information</h2>
 
@@ -119,7 +136,7 @@ $vitalSigns = [
     <?php }, $vitalSigns) ?> 
     </div>
     <h2 class="secondary-text">Doctor's Report Form</h2>
-    <textarea name="" id="" placeholder="Observations" class="full" rows="4"></textarea>
+    <textarea name="observations" id="observations" placeholder="Observations" class="full" rows="4"></textarea>
     <input type="text" class="full" placeholder="Laboratory request (Optional)">
     <input type="text" class="full" placeholder="Drug Prescription (Optional)">
     <span class="check-container">

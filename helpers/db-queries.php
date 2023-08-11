@@ -15,7 +15,7 @@ function fetch_database_row($id, $column, $table) {
     return false;
 }
 
-function saveRecord($query) {
+function save_record($query) {
     global $mysqli;
     $result = $mysqli->query($query);
     return true;

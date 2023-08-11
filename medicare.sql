@@ -38,6 +38,7 @@ CREATE TABLE appointments(
     comment_for_doctor VARCHAR(255),
     appointment_date DATE,
     appointment_time TIME,
+    observations VARCHAR(500),
     finished BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (patient_id) REFERENCES patients(id),
     FOREIGN KEY (doctor_id) REFERENCES staff(id) 

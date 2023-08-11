@@ -3,7 +3,7 @@
 require_once('../../index.php');
 
 $searchEmail = isset($_GET['email']) ? $_GET['email'] : null;
-$patient = isset($searchEmail) ? fetchProfileByEmail($searchEmail, 'patients') : null;
+$patient = isset($searchEmail) ? fetch_database_row($searchEmail, 'email_address', 'patients') : null;
 
 ?>
 
