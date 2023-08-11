@@ -60,7 +60,7 @@ function formatTimeRange($startTime) {
 
 ?>
 
-<?= generatePageHead('View All Appointments', 'tables.css') ?>>
+<?= generatePageHead('View All Appointments', 'tables.css') ?>
 
 <form class="search-form">
     <span class="search-icon">

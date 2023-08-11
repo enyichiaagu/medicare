@@ -3,9 +3,9 @@
 // Connect to the database
 $mysqli = new mysqli($hostname, $db_username, $db_password, $database);
 
-function fetchProfileByEmail($email, $table) {
+function fetch_database_row($id, $column, $table) {
     global $mysqli;
-    $query = "SELECT * FROM `$table` WHERE email_address='$email'";
+    $query = "SELECT * FROM `$table` WHERE `$column` = '$id'";
 
     $result = $mysqli->query($query);
 

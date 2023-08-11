@@ -15,12 +15,6 @@ if ($appointmentsList->num_rows > 0) {
     }
 }
 
-function findAge($dob) {
-    $birthDate = date_create($dob);
-    $today = date_create();
-    return date_diff($today, $birthDate)->format('%y');
-}
-
 function formatTime($time) {
     $start = date('h:i', strtotime($time));
     $end = date('h:i A', strtotime($time) + (30 * 60));
@@ -42,6 +36,7 @@ function formatTime($time) {
             <th>Gender</th>
             <th>Age</th>
             <th>Genotype</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -53,6 +48,11 @@ function formatTime($time) {
                 <td><?= $item['gender'] ?></td>
                 <td><?= findAge($item['date_of_birth']) ?></td>
                 <td><?= $item['genotype'] ?></td>
+                <td>
+                    <div class="badge <?= $item['finished'] ? 'success' : 'new' ?>">
+                        <span><?= $item['finished'] ? 'finished' : 'new' ?></span>
+                    </div>
+                </td>
             </tr>
         <?php }, $appointmentsArray); ?>
     </tbody>

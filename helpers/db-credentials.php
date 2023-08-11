@@ -78,7 +78,7 @@
             "name" => "Signs",
             "iconText" => "lda",
             "url" => "signs",
-            "permission" => "nursing, physician",
+            "permission" => "nursing",
             "sub-menu" => [
                 [
                     "title" => "Take Vital Signs",
@@ -95,6 +95,10 @@
                 [
                     "title" => "List Appointments",
                     "url" => "my-appointments"
+                ],
+                [
+                    "title" => "Report",
+                    "url" => "report"
                 ]
             ]
         ],

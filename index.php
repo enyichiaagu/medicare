@@ -32,6 +32,12 @@
 		$notManager = $_SESSION['user']['unit'] !== 'management';
 		return $notOverview && $notManager;
 	}
+	
+	function findAge($dob) {
+		$birthDate = date_create($dob);
+		$today = date_create();
+		return date_diff($today, $birthDate)->format('%y');
+	}
 
 	function hasPermission() {
 		global $page_structure;
