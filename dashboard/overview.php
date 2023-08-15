@@ -36,23 +36,19 @@ $doctor_count = $doctors_num->fetch_assoc();
     <span class="material-symbols-outlined">waving_hand</span>
 </h2>
 
-<!-- <div class="overview-body">
-    <div class="overview-item a">
-        <span class="material-symbols-outlined round-icons">note_alt</span>
-        <span class="overview-text">Book Appointment</span>
-    </div>
-    <div class="overview-item b">
-        <span class="material-symbols-outlined round-icons">view_list</span>
-        <span class="overview-text"><?= $appointment_count['row_count'] ?> Appointments</span>
-    </div>
-    <div class="overview-item c">
-        <span class="material-symbols-outlined large-icons blue-icon">clinical_notes</span>
-        <span class="overview-text"><?= $doctor_count['row_count'] ?> Active Doctors</span>
-    </div>
-    <div class="overview-item d">
-        <span class="material-symbols-outlined large-icons white-icon">person_add</span>
-        <span class="overview-text">Add New Patient</span>
-    </div>
-</div> -->
+<!-- creating brief description of medicare -->
+<div class="description">
+    <p id="describe">Medicare is a Hopital Management System that performs the following functions: </p>
+    <ul class="lists">
+        <li>Register and add patients</li>
+        <li>Take patient's vital signs</li>
+        <li>Book appointments for patients </li>
+    <ul>
+    <ul class="lists">
+        <li>Manage drug dispencing</li>
+        <li>Share doctor's report</li>
+        <li>Supervise payments and lots more...</li>
+    </ul>
+<div>
 
 <?= generatePageFoot() ?>
