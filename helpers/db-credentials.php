@@ -123,6 +123,10 @@
                 [
                     "title" => "List Records",
                     "url" => "record-list"
+                ],
+                [
+                    "title" => "Lab Report",
+                    "url" => "lab-report"
                 ]
             ]
         ],

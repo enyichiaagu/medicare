@@ -22,7 +22,7 @@
 }
 
 * {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;

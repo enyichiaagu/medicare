@@ -115,6 +115,13 @@ form.classic-form .show-info {
 	font-weight: bold;
 }
 
+form.classic-form .radio-box {
+	margin: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.1rem;
+}
+
 a.cancel-link {
 	color: var(--error-text);
 	font-weight: bold;

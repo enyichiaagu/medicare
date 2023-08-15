@@ -57,7 +57,7 @@ CREATE TABLE vital_signs(
 
 CREATE TABLE payments(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    payment_id VARCHAR(125) NOT NULL,
+    payment_id VARCHAR(20) NOT NULL,
     patient_id INT NOT NULL,
     entry_date DATETIME NOT NULL,
     payment_date DATETIME,
@@ -67,6 +67,31 @@ CREATE TABLE payments(
     paid BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (recipient) REFERENCES staff(id),
     FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
+CREATE TABLE laboratory(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    lab_id VARCHAR(20) NOT NULL,
+    entry_date TIMESTAMP,
+    patient_id INT NOT NULL,
+    lab_tests VARCHAR(255) NOT NULL,
+    appointment_id INT NOT NULL,
+    lab_status INT NOT NULL DEFAULT -1,
+    result VARCHAR(255),
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (appointment_id) REFERENCES appointments(id)
+);
+
+CREATE TABLE pharmacy(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pharm_id VARCHAR(20) NOT NULL,
+    entry_date TIMESTAMP,
+    patient_id INT NOT NULL,
+    drugs VARCHAR(255) NOT NULL,
+    appointment_id INT NOT NULL,
+    finished INT NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (appointment_id) REFERENCES appointments(id)
 );
 
 -- ALTER TABLE `appointment` ADD CONSTRAINT `foreign` FOREIGN KEY (`doctor_id`) REFERENCES `staff`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;

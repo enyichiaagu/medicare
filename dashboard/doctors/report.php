@@ -9,7 +9,30 @@ if (!isset($appointmentId)){
     header('Location: my-appointments.php');
     exit;
 
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+}
+
+$appointmentDetails = fetch_database_row($appointmentId, 'appointment_id', 'appointments');
+$patientDetails = fetch_database_row($appointmentDetails['patient_id'], 'id', 'patients');
+$signDetails = fetch_database_row($patientDetails['id'], 'patient_id', 'vital_signs');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $lab_request = $_POST['lab'];
+    $pharm_request = $_POST['pharm'];
+
+    $random_id = uniqid();
+    $patient_id = $patientDetails['id'];
+    $appoint_id = $appointmentDetails['id'];
+
+    if ($lab_request !== '') {
+        $lab_query = "INSERT INTO laboratory (lab_id, patient_id, lab_tests, appointment_id) VALUES ('$random_id', '$patient_id', '$lab_request', '$appoint_id')";
+        save_record($lab_query);
+    }
+
+    if ($pharm_request !== '') {
+        $pharm_query = "INSERT INTO pharmacy (pharm_id, patient_id, drugs, appointment_id) VALUES ('$random_id', '$patient_id', '$pharm_request', '$appoint_id')";
+        save_record($pharm_query);
+    }
 
     $observations = $_POST['observations'];
     $finished = true;
@@ -20,10 +43,6 @@ if (!isset($appointmentId)){
     exit;
 
 }
-
-$appointmentDetails = fetch_database_row($appointmentId, 'appointment_id', 'appointments');
-$patientDetails = fetch_database_row($appointmentDetails['patient_id'], 'id', 'patients');
-$signDetails = fetch_database_row($patientDetails['id'], 'patient_id', 'vital_signs');
 
 function signDetails($db_column, $unit='') {
     global $signDetails;
@@ -137,8 +156,8 @@ $vitalSigns = [
     </div>
     <h2 class="secondary-text">Doctor's Report Form</h2>
     <textarea name="observations" id="observations" placeholder="Observations" class="full" rows="4"></textarea>
-    <input type="text" class="full" placeholder="Laboratory request (Optional)">
-    <input type="text" class="full" placeholder="Drug Prescription (Optional)">
+    <input type="text" name="lab" class="full" placeholder="Laboratory request (Optional)">
+    <input type="text" name="pharm" class="full" placeholder="Drug Prescription (Optional)">
     <span class="check-container">
         <input id="check" type="checkbox" name="" value="">
         <label for="check">Admit Patient</label>
