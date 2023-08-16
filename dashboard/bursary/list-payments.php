@@ -57,7 +57,7 @@ function formatAmount($amount) {
             <td><?= $item['full_name'] ?></td>
             <td><?= $item['email_address'] ?></td>
             <td><?= $item['reason'] ?></td>
-            <td>₦ <?= formatAmount($item['amount']) ?></td>
+            <td>₦ <?= formatAmount($item['amount']) ?>.00</td>
             <td class="badge <?= $item['paid'] ? 'success' : 'error' ?>">
                 <span><?= $item['paid'] ? 'Paid' : 'Not Paid' ?></span>
             </td>

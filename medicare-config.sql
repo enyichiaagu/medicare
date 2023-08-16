@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2023 at 01:38 PM
+-- Generation Time: Aug 16, 2023 at 01:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,21 +35,46 @@ CREATE TABLE `appointments` (
   `doctor_id` int(11) NOT NULL,
   `comment_for_doctor` varchar(255) DEFAULT NULL,
   `appointment_date` date DEFAULT NULL,
-  `appointment_time` time NOT NULL
+  `appointment_time` time NOT NULL,
+  `finished` tinyint(1) NOT NULL DEFAULT 0,
+  `observations` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`id`, `appointment_id`, `patient_id`, `appointment_type`, `doctor_id`, `comment_for_doctor`, `appointment_date`, `appointment_time`) VALUES
-(4, '64c418d1a40f7', 2, 'General Check-up', 3, '', '2023-07-31', '10:00:00'),
-(14, '64c64844be010', 3, 'General Check-up', 4, '', '2023-07-31', '12:00:00'),
-(15, '64c736d3267a5', 3, 'Ear, Nose and Throat Checkup', 9, '', '2023-07-31', '12:00:00'),
-(16, '64c737b464ded', 3, 'General Check-up', 10, '', '2023-08-02', '10:00:00'),
-(17, '64c773269ea40', 5, 'Orthopedics', 4, '', '2023-08-01', '09:00:00'),
-(18, '64ca3967c2d86', 3, 'Obstetrics and Gynecology', 12, '', '2023-08-04', '14:30:00'),
-(21, '64cb912e88c19', 5, 'General Check-up', 17, '', '2023-08-04', '13:30:00');
+INSERT INTO `appointments` (`id`, `appointment_id`, `patient_id`, `appointment_type`, `doctor_id`, `comment_for_doctor`, `appointment_date`, `appointment_time`, `finished`, `observations`) VALUES
+(4, '64c418d1a40f7', 2, 'General Check-up', 3, '', '2023-07-31', '10:00:00', 0, ''),
+(17, '64c773269ea40', 5, 'Orthopedics', 4, '', '2023-08-01', '09:00:00', 0, ''),
+(18, '64ca3967c2d86', 3, 'Obstetrics and Gynecology', 12, '', '2023-08-04', '14:30:00', 0, ''),
+(27, '64db55115c125', 3, 'General Check-up', 17, '', '2023-08-17', '01:00:00', 1, ''),
+(28, '64dc7fe131236', 5, 'General Check-up', 17, '', '2023-08-16', '09:00:00', 1, 'Suffering from Chicken Pox');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `laboratory`
+--
+
+CREATE TABLE `laboratory` (
+  `id` int(11) NOT NULL,
+  `lab_id` varchar(20) NOT NULL,
+  `entry_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `patient_id` int(11) NOT NULL,
+  `lab_tests` varchar(255) NOT NULL,
+  `appointment_id` int(11) NOT NULL,
+  `lab_status` int(11) NOT NULL DEFAULT -1,
+  `result` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `laboratory`
+--
+
+INSERT INTO `laboratory` (`id`, `lab_id`, `entry_date`, `patient_id`, `lab_tests`, `appointment_id`, `lab_status`, `result`) VALUES
+(2, '64db557cf2d7e', '2023-08-15 20:52:09', 3, 'Urinalysis', 27, 0, ''),
+(3, '64dc80636cff5', '2023-08-16 07:54:44', 5, 'Urinalysis, Blood Sugar Test', 28, 1, 'Nothing found');
 
 -- --------------------------------------------------------
 
@@ -115,8 +140,34 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `payment_id`, `patient_id`, `entry_date`, `payment_date`, `amount`, `reason`, `recipient`, `paid`) VALUES
-(1, '64cb888415bd7', 21, '2023-08-03 11:59:16', NULL, 1000, 'Patient Registration', NULL, 1),
-(2, '64cb8be7ec32f', 22, '2023-08-03 12:13:43', NULL, 1000, 'Patient Registration', NULL, 0);
+(1, '64cb888415bd7', 21, '2023-08-03 11:59:16', NULL, 1000, 'Patient Registration', NULL, 0),
+(2, '64cb8be7ec32f', 22, '2023-08-03 12:13:43', NULL, 1000, 'Patient Registration', NULL, 1),
+(3, '64dbdb9bbe51e', 3, '2023-08-15 22:06:45', NULL, 1000, 'Payment for Drugs', NULL, 0),
+(4, '64dc80636cff5', 5, '2023-08-16 08:55:04', NULL, 3500, 'Payment for Drugs', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pharmacy`
+--
+
+CREATE TABLE `pharmacy` (
+  `id` int(11) NOT NULL,
+  `pharm_id` varchar(20) NOT NULL,
+  `entry_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `patient_id` int(11) NOT NULL,
+  `drugs` varchar(255) NOT NULL,
+  `appointment_id` int(11) NOT NULL,
+  `finished` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pharmacy`
+--
+
+INSERT INTO `pharmacy` (`id`, `pharm_id`, `entry_date`, `patient_id`, `drugs`, `appointment_id`, `finished`) VALUES
+(1, '64dbdb9bbe51e', '2023-08-15 21:04:11', 3, 'Paracetamol, Vitamin C, Amoxil or Cipro', 27, 1),
+(2, '64dc80636cff5', '2023-08-16 07:55:04', 5, 'Amoxil, Cipro, Paracetamol, Vitamin C', 28, 1);
 
 -- --------------------------------------------------------
 
@@ -169,15 +220,21 @@ INSERT INTO `staff` (`id`, `staff_id`, `full_name`, `gender`, `date_of_birth`, `
 --
 
 CREATE TABLE `vital_signs` (
-  `ID` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
   `blood_pressure` varchar(20) NOT NULL,
   `pulse_rate` varchar(20) NOT NULL,
   `body_weight` varchar(20) NOT NULL,
   `body_temperature` varchar(20) NOT NULL,
   `urine_composition` varchar(255) DEFAULT NULL,
-  `oxygen_saturation` varchar(255) DEFAULT NULL
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vital_signs`
+--
+
+INSERT INTO `vital_signs` (`patient_id`, `blood_pressure`, `pulse_rate`, `body_weight`, `body_temperature`, `urine_composition`, `last_updated`) VALUES
+(3, '180/60', '82', '98', '37', '', '2023-08-11 12:35:20');
 
 --
 -- Indexes for dumped tables
@@ -190,6 +247,14 @@ ALTER TABLE `appointments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `patient_id` (`patient_id`),
   ADD KEY `doctor_id` (`doctor_id`);
+
+--
+-- Indexes for table `laboratory`
+--
+ALTER TABLE `laboratory`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `patient_id` (`patient_id`),
+  ADD KEY `appointment_id` (`appointment_id`);
 
 --
 -- Indexes for table `patients`
@@ -206,6 +271,14 @@ ALTER TABLE `payments`
   ADD KEY `patient_id` (`patient_id`);
 
 --
+-- Indexes for table `pharmacy`
+--
+ALTER TABLE `pharmacy`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `patient_id` (`patient_id`),
+  ADD KEY `appointment_id` (`appointment_id`);
+
+--
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -216,8 +289,7 @@ ALTER TABLE `staff`
 -- Indexes for table `vital_signs`
 --
 ALTER TABLE `vital_signs`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `patient_id` (`patient_id`);
+  ADD PRIMARY KEY (`patient_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -227,7 +299,13 @@ ALTER TABLE `vital_signs`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `laboratory`
+--
+ALTER TABLE `laboratory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patients`
@@ -239,6 +317,12 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `pharmacy`
+--
+ALTER TABLE `pharmacy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -246,12 +330,6 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
---
--- AUTO_INCREMENT for table `vital_signs`
---
-ALTER TABLE `vital_signs`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -265,11 +343,25 @@ ALTER TABLE `appointments`
   ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `staff` (`id`);
 
 --
+-- Constraints for table `laboratory`
+--
+ALTER TABLE `laboratory`
+  ADD CONSTRAINT `laboratory_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
+  ADD CONSTRAINT `laboratory_ibfk_2` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`id`);
+
+--
 -- Constraints for table `payments`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`recipient`) REFERENCES `staff` (`id`),
   ADD CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`);
+
+--
+-- Constraints for table `pharmacy`
+--
+ALTER TABLE `pharmacy`
+  ADD CONSTRAINT `pharmacy_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
+  ADD CONSTRAINT `pharmacy_ibfk_2` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`id`);
 
 --
 -- Constraints for table `vital_signs`
