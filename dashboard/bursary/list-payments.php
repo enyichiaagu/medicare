@@ -40,8 +40,8 @@ function formatAmount($amount) {
 <table class="classic-table highlight">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Created Time</th>
+            <th>Date Created</th>
+            <th>Time</th>
             <th>Patient Name</th>
             <th>Patient Email</th>
             <th>Payment Type</th>

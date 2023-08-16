@@ -111,6 +111,10 @@
                 [
                     "title" => "List Requests",
                     "url" => "requests"
+                ],
+                [
+                    "title" => "Pharmacy Report",
+                    "url" => "pharm-report"
                 ]
             ]
         ],
@@ -151,6 +155,10 @@
                 [
                     "title" => "List All Payments",
                     "url" => "list-payments"
+                ],
+                [
+                    "title" => "Payment Report",
+                    "url" => "payment"
                 ]
             ]
         ],

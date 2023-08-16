@@ -1,4 +1,14 @@
-<?php require_once('../../index.php') ?>
+<?php
+
+require_once('../../index.php');
+
+$pharm_list = fetch_database_row(null, null, 'pharmacy');
+
+function patientDetails($id) {
+    return fetch_database_row($id, 'id', 'patients');
+}
+
+?>
 
 <?= generatePageHead('Pharmacy', 'tables.css') ?>
 
@@ -12,61 +22,40 @@
     <button class="default-button">Submit</button>
 </form>
 
-<div>
-    <table class="classic-table highlight">
-        <thead>
-            <tr>
-                <th>Prescription Date</th>
-                <th>Time Created</th>
-                <th>Patient Name</th>
-                <th>Patient Email</th>
-                <th>Drugs Requested</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>12 Dec</td>
-                <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
-                <td class="clip-data">Paracetamol (200 mg), Vitamin C, Visita Plus Cream</td>
-                <td class="badge success">
-                    <span>finished</span>
+<?php if ($pharm_list !== false) { ?>
+<table class="classic-table highlight">
+    <thead>
+        <tr>
+            <th>Date Updated</th>
+            <th>Time</th>
+            <th>Patient Name</th>
+            <th>Patient Email</th>
+            <th>Drugs Requested</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+        
+        array_map(function ($item){
+            $patient = patientDetails($item['patient_id']);
+        
+        ?>
+            <tr data-href="<?= 'pharm-report.php?id='.$item['pharm_id']?>">
+                <td><?= date('d M', strtotime($item['entry_date'])) ?></td>
+                <td><?= date('h:i A', strtotime($item['entry_date'])) ?></td>
+                <td><?= $patient['full_name'] ?></td>
+                <td><?= $patient['email_address'] ?></td>
+                <td class="clip-data"><?= $item['drugs'] ?></td>
+                <td class="badge <?= $item['finished'] ? 'success' : 'new' ?>">
+                    <span><?= $item['finished'] ? 'finished' : 'new' ?></span>
                 </td>
             </tr>
-            <tr>
-                <td>12 Dec</td>
-                <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
-                <td class="clip-data">Paracetamol (200 mg), Vitamin C, Visita Plus Cream</td>
-                <td class="badge success">
-                    <span>finished</span>
-                </td>
-            </tr>
-            <tr>
-                <td>12 Dec</td>
-                <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
-                <td class="clip-data">Paracetamol (200 mg), Vitamin C, Visita Plus Cream</td>
-                <td class="badge success">
-                    <span>finished</span>
-                </td>
-            </tr>
-            <tr>
-                <td>12 Dec</td>
-                <td>4:32 PM</td>
-                <td class="clip-data">Victor Abraham</td>
-                <td class="clip-data">abrahmavictor@gmail.com</td>
-                <td class="clip-data">Paracetamol (200 mg), Vitamin C, Visita Plus Cream</td>
-                <td class="badge success">
-                    <span>finished</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <?php }, $pharm_list); ?>
+    </tbody>
+</table>
+<?php } else { ?>
+<div class="error-message notification"><span class="material-symbols-outlined">error</span>No Drug Requests Found</div>
+<?php } ?>
 
 <?= generatePageFoot('click-tables.js') ?>

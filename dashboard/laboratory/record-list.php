@@ -25,8 +25,8 @@ function patientDetails($id) {
 <table class="classic-table highlight">
     <thead>
         <tr>
-            <th>Date Created</th>
-            <th>Time Created</th>
+            <th>Date Updated</th>
+            <th>Time</th>
             <th>Patient Name</th>
             <th>Patient Email</th>
             <th>Gender</th>
