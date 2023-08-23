@@ -27,6 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($lab_request !== '') {
         $lab_query = "INSERT INTO laboratory (lab_id, patient_id, lab_tests, appointment_id) VALUES ('$random_id', '$patient_id', '$lab_request', '$appoint_id')";
         save_record($lab_query);
+
+        $timestamp = date('Y-m-d H:i:s');
+        $payment_query = "INSERT INTO payments (payment_id, patient_id, entry_date, amount, reason) VALUES ('$random_id', '$patient_id', '$timestamp', 2500, 'Lab Test Fee')";
+        save_record($payment_query);
     }
 
     if ($pharm_request !== '') {

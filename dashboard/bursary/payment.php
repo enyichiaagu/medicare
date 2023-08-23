@@ -50,8 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-?>
-
 <?= generatePageHead('Payment', 'forms.css') ?>
 
 <form class="classic-form" method="POST">

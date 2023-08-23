@@ -13,7 +13,7 @@
 </form>
 
 <div>
-    <table class="classic-table highlight">
+    <table class="classic-table">
         <thead>
             <tr>
                 <th>Date Admitted</th>
@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-href="entry.php">
+            <tr>
                 <td>12 Dec</td>
                 <td>4:32 PM</td>
                 <td>Victor Abraham</td>

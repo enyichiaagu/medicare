@@ -3,7 +3,7 @@
 require_once('../../index.php');
 
 $searchEmail = isset($_GET['search']) ? $_GET['search'] : null;
-$staff = fetchProfileByEmail($searchEmail, 'staff');
+$staff = fetch_database_row($searchEmail, 'email_address', 'staff');
 
 function nameOfUnit($unit) {
     global $hospital_units;

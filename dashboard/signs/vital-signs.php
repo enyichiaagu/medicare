@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             body_temperature = VALUES(body_temperature),
             urine_composition = VALUES(urine_composition)";
         
-        saveRecord($updateQuery);
+        save_record($updateQuery);
         $message = ["success", "Signs successfully Recorded"];
 
     } else {

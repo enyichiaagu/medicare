@@ -47,10 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($patient->num_rows === 1) {
 
-        $fetch_appointment = "SELECT appointment_time FROM appointments WHERE appointment_date='$appointment_day' AND doctor_id='$doctor_id'";
+        $fetch_appointment = "SELECT * FROM appointments WHERE appointment_date='$appointment_day' AND appointment_time='$appointment_time:00' AND doctor_id='$doctor_id'";
         $booked = $mysqli->query($fetch_appointment);
 
-        if ($booked->num_rows === 1) $message = ['error', 'Another Patient has booked this time, pick another Doctor'];
+        if ($booked->num_rows === 1) $message = ['error', 'Another Patient has booked this time, pick another Doctor or Time'];
         else {
             $patient_id = $patient->fetch_assoc()['id'];
 
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } else {
-        $message=['error', 'The Patient\'s Email is not registered'];
+        $message=['error', "The Patient's Email is not registered"];
     }
 
 } 

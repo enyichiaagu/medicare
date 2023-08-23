@@ -74,6 +74,8 @@ main div.content-box {
 	border-radius: 0.5rem;
 	white-space: nowrap;
 	letter-spacing: 1px;
+	width: 100%;
+	text-align: center;
 }
 
 .classic-table .badge {

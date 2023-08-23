@@ -95,10 +95,6 @@
                 [
                     "title" => "List Appointments",
                     "url" => "my-appointments"
-                ],
-                [
-                    "title" => "Report",
-                    "url" => "report"
                 ]
             ]
         ],
@@ -111,10 +107,6 @@
                 [
                     "title" => "List Requests",
                     "url" => "requests"
-                ],
-                [
-                    "title" => "Pharmacy Report",
-                    "url" => "pharm-report"
                 ]
             ]
         ],
@@ -127,10 +119,6 @@
                 [
                     "title" => "List Records",
                     "url" => "record-list"
-                ],
-                [
-                    "title" => "Lab Report",
-                    "url" => "lab-report"
                 ]
             ]
         ],
@@ -155,10 +143,6 @@
                 [
                     "title" => "List All Payments",
                     "url" => "list-payments"
-                ],
-                [
-                    "title" => "Payment Report",
-                    "url" => "payment"
                 ]
             ]
         ],
