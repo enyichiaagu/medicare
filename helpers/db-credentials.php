@@ -122,18 +122,18 @@
                 ]
             ]
         ],
-        [
-            "name" => "Ward",
-            "iconText" => "ward",
-            "url" => "ward",
-            "permission" => "nursing,opd,physician",
-            "sub-menu" => [
-                [
-                    "title" => "List Ward Patients",
-                    "url" => "ward-list"
-                ]
-            ]
-        ],
+        // [
+        //     "name" => "Ward",
+        //     "iconText" => "ward",
+        //     "url" => "ward",
+        //     "permission" => "nursing,opd,physician",
+        //     "sub-menu" => [
+        //         [
+        //             "title" => "List Ward Patients",
+        //             "url" => "ward-list"
+        //         ]
+        //     ]
+        // ],
         [
             "name" => "Bursary",
             "iconText" => "payments",
