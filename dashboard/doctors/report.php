@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function signDetails($db_column, $unit='') {
     global $signDetails;
+    if ($signDetails[$db_column] === '') {
+        return null;
+    }
     return ($signDetails === false) ? null : $signDetails[$db_column].' '.$unit;
 }
 

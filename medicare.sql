@@ -12,7 +12,9 @@ CREATE TABLE patients(
     existing_medical_conditions VARCHAR(255),
     allergies VARCHAR(255),
     blood_group CHAR(10),
-    genotype CHAR(10)
+    genotype CHAR(10),
+    payment_id INT,
+    FOREIGN KEY (payment_id) REFERENCES payments(id)
 );
 
 CREATE TABLE staff(

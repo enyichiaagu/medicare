@@ -13,7 +13,7 @@
 	--secondary-font: 'Roboto', sans-serif;
 	--button-grey: #2f3236;
 	--success-bg: #c4f2c4;
-	--success-text: #1dbd1d;
+	--success-text: #157015;
 	--error-bg: #f8d0c8;
 	--error-text: #e71010;
 	--pending: #cdd3ff;
@@ -22,7 +22,7 @@
 }
 
 * {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
