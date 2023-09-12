@@ -10,6 +10,7 @@ if ($paymentId === null) {
 }
 
 $payment_details = fetch_database_row($paymentId, 'payment_id', 'payments');
+
 $patient = fetch_database_row($payment_details['patient_id'], 'id', 'patients');
 
 $paymentInfo = [
@@ -54,7 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <form class="classic-form" method="POST">
 
-    <h2 class="secondary-text">Payment Information</h2>
+    <h2 class="secondary-text">
+        Payment Information
+        <button type="button" class="print-btn" title="Print">
+            <span class="material-symbols-outlined">print</span>
+        </button>
+    </h2>
 
     <div class="show-info">
     <?php array_map(function ($item) { ?>
@@ -62,14 +68,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <span class="title"><?= $item['title'] ?>:</span>
             <span class="value"><?= $item['value'] ?></span>
         </span>
-    <?php }, $paymentInfo) ?> 
+    <?php }, $paymentInfo);
+    
+    $status = $payment_details['paid'];
+
+    ?>
+        <span class="value payment-status <?= $status ? 'success' : 'error' ?>">
+            <?= $status ? 'Paid' : 'Not Paid' ?>
+        </span>
     </div>
 
     <div class="button-container">
-        <a class="cancel-link" href="list-payments.php">Cancel</a>
+        <a class="cancel-link" href="list-payments.php">Back</a>
         <button class="submit default-button">Mark as Paid</button>
     </div>
 
 </form>
 
-<?= generatePageFoot() ?>
+<?= generatePageFoot('print.js') ?>

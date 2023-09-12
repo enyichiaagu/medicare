@@ -112,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?= $item ?>
                 </option>
             <?php }, $formOptions[1]['options']); ?>
+            <option value="">Genotype: Not Applicable</option>
         </select>
         <!-- bloodGroup -->
         <select id="blood-group" name="blood-group">
@@ -121,6 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?= $item ?>
                 </option>
             <?php }, $formOptions[2]['options']); ?>
+            <option value="">Blood Group: Not Applicable</option>
         </select>
     </div>
 
@@ -137,6 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="tel" id="next-of-kin-phone" placeholder="Next of Kin's Phone Number" name="next-of-kin-phone">
     </div>
     <h2 class="secondary-text">Medical History</h2>
+    <p>Please tick if the patient has any of the following conditions:</p>
     <div class="split">
         <?php $counter = 0 ?>
         <?php array_map(function($item) use (&$counter) { ?>

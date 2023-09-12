@@ -48,7 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $patientId = $patient['id'];
     $timestamp = date('Y-m-d H:i:s');
-    $createPayment = "INSERT INTO payments (payment_id, patient_id, entry_date, amount, reason) VALUES ('$pharmId', '$patientId', '$timestamp', '$result', 'Payment for Drugs')";
+    $uniqueId = uniqid();
+    $createPayment = "INSERT INTO payments (payment_id, patient_id, entry_date, amount, reason) VALUES ('$uniqueId', '$patientId', '$timestamp', '$result', 'Payment for Drugs')";
     save_record($createPayment);
 
     header('Location: requests.php');

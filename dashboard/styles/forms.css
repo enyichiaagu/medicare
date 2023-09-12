@@ -133,3 +133,59 @@ a.cancel-link {
 a.cancel-link:hover {
 	background-color: var(--error-bg);
 }
+
+h2.secondary-text {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.print-btn {
+	padding: 0.2rem 0.5rem;
+	border-radius: 0.2rem;
+	border: 1px solid var(--bg-blue);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.print-btn:hover {
+	background-color: var(--bg-blue);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.print-btn span {
+	font-size: 2rem;
+	font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+	color: var(--bg-blue);
+}
+
+.print-btn:hover span {
+	color: var(--white);
+	font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+}
+
+span.payment-status {
+	margin-top: 1rem;
+	padding: 0.5rem 3rem;
+	width: fit-content;
+}
+
+span.payment-status.success {
+	font-weight: normal;
+	color: var(--success-text);
+	background-color: var(--success-bg);
+}
+
+span.payment-status.error {
+	font-weight: normal;
+	color: var(--error-text);
+	background-color: var(--error-bg);
+}
+
+@media print {
+	span.payment-status {
+		padding: 0;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+	}
+}

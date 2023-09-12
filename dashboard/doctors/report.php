@@ -158,7 +158,7 @@ $vitalSigns = [
         </span>
     <?php }, $vitalSigns) ?> 
     </div>
-    <h2 class="secondary-text">Doctor's Report Form</h2>
+    <h2 class="secondary-text">Doctor's Report</h2>
     <textarea name="observations" id="observations" placeholder="Observations" class="full" rows="4"></textarea>
     <input type="text" name="lab" class="full" placeholder="Laboratory request (Optional)">
     <input type="text" name="pharm" class="full" placeholder="Drug Prescription (Optional)">
