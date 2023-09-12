@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Get a response from db
         $result = $mysqli->query($query);
-        $message = ["success", "Patient Added Successfully"];
+        $message = ["success", "Patient Added Successfully. Please Direct to the Bursary"];
 
         // Fetch User Id from Database
         $fetchUserQuery = "SELECT id FROM patients WHERE patient_id='$patient_id'";
