@@ -25,7 +25,7 @@ if ($doctors->num_rows > 0) {
 }
 
 // Variables for Staff Details
-$email = '';
+$patientId = '';
 $appointment_type = '';
 $appointment_day = '';
 $appointment_time = '';
@@ -35,14 +35,14 @@ $comment = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Grab the staff's details
-    $email = $_POST['patient-email'];
+    $patientId = $_POST['patient-id'];
     $appointment_type = $_POST['appointment_type'];
     $appointment_day = $_POST['appointment-date'];
     $appointment_time = $_POST['appointment_time'];
     $doctor_id = $_POST['doctor-id'];
     $comment = $_POST['comment'];
 
-    $fetch_patient_query = "SELECT id FROM patients WHERE email_address='$email'";
+    $fetch_patient_query = "SELECT id FROM patients WHERE patient_id='$patientId'";
     $patient = $mysqli->query($fetch_patient_query);
 
     if ($patient->num_rows === 1) {
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } else {
-        $message=['error', "The Patient's Email is not registered"];
+        $message=['error', "ID does not exist"];
     }
 
 } 
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php } ?>
 
     <h2 class="secondary-text">Create New Appointment</h2>
-    <input type="text" name="patient-email" id="" placeholder="Patient Email" class="full" value="<?= $email ?>">
+    <input type="text" name="patient-id" placeholder="Patient ID" class="full">
     <select name="appointment_type" id="appointment_type" class="full" required>
         <option value="">Appointment Type</option>
         <?php array_map(function ($item) { ?>

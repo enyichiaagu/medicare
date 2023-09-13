@@ -50,10 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function signDetails($db_column, $unit='') {
     global $signDetails;
-    if ($signDetails[$db_column] === '') {
+    if ($signDetails === false || $signDetails[$db_column] === '' || $signDetails[$db_column] === null) {
         return null;
     }
-    return ($signDetails === false) ? null : $signDetails[$db_column].' '.$unit;
+    return $signDetails[$db_column].' '.$unit;
 }
 
 function lastUpdated($timestamp) {
@@ -161,6 +161,12 @@ $vitalSigns = [
         </span>
     <?php }, $vitalSigns) ?> 
     </div>
+
+    <a href="history.php?id=<?= $appointmentId ?>" class="history-link">
+        <span class="material-symbols-outlined">history</span>
+        <span>See Medical History</span>
+    </a>
+
     <h2 class="secondary-text">Doctor's Report</h2>
     <textarea name="observations" id="observations" placeholder="Observations" class="full" rows="4"></textarea>
     <input type="text" name="lab" class="full" placeholder="Laboratory request (Optional)">

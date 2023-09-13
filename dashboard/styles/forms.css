@@ -80,6 +80,7 @@ form.classic-form .split > * {
 }
 
 form.classic-form .button-container {
+	margin-top: 1.5rem;
 	text-align: right;
 }
 
@@ -145,6 +146,7 @@ h2.secondary-text {
 	border-radius: 0.2rem;
 	border: 1px solid var(--bg-blue);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	background: none;
 }
 
 .print-btn:hover {
@@ -179,6 +181,17 @@ span.payment-status.error {
 	font-weight: normal;
 	color: var(--error-text);
 	background-color: var(--error-bg);
+}
+
+a.history-link {
+	display: flex;
+	margin-top: 1rem;
+	align-items: center;
+	column-gap: 0.5rem;
+}
+
+a.history-link span {
+	color: var(--bg-blue);
 }
 
 @media print {

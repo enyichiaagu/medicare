@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Get a response from db
         $result = $mysqli->query($query);
-        $message = ["success", "Patient Added Successfully. Please Direct to the Bursary"];
+        // $message = ["success", "Patient Added Successfully. Please Direct to the Bursary"];
 
         // Fetch User Id from Database
         $fetchUserQuery = "SELECT id FROM patients WHERE patient_id='$patient_id'";
@@ -72,6 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $timestamp = date('Y-m-d H:i:s');
         $addPaymentQuery = "INSERT INTO payments(payment_id, entry_date, patient_id, amount, reason) VALUES('$payment_id', '$timestamp', '$userId', '$registrationAmount', '$reason')";
         $savedPaymentRecord = $mysqli->query($addPaymentQuery);
+
+        header("Location: success.php?id=$patient_id");
+        exit;
 
     } else {
         $message = ['error', 'Something went wrong. Please try again later'];

@@ -2,8 +2,8 @@
 
 require_once('../../index.php');
 
-$searchEmail = isset($_GET['email']) ? $_GET['email'] : null;
-$patient = isset($searchEmail) ? fetch_database_row($searchEmail, 'email_address', 'patients') : null;
+$searchId = isset($_GET['patient-id']) ? $_GET['patient-id'] : null;
+$patient = isset($searchId) ? fetch_database_row($searchId, 'patient_id', 'patients') : null;
 
 ?>
 
@@ -15,10 +15,10 @@ $patient = isset($searchEmail) ? fetch_database_row($searchEmail, 'email_address
             search
         </span>
     </span>
-    <input type="email" name="email" id="search" placeholder="Search Patient Email" class="input-bar" value='<?= $searchEmail ?>' required>
+    <input type="text" name="patient-id" id="search" placeholder="Search Patient ID" class="input-bar" value='<?= $searchId ?>' required>
     <button class="default-button">Submit</button>
 </form>
-<?php if (isset($searchEmail) && isset($patient) && $patient !== false) { ?>
+<?php if (isset($searchId) && isset($patient) && $patient !== false) { ?>
 <div class="show-card">
     <div class="card-header">
         <span class="patient-name"><?= $patient['full_name'] ?></span>
