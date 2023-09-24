@@ -93,7 +93,7 @@
 						autocomplete="off"
 						id="password-input"
 						placeholder="Password"
-						minlength="5"
+						minlength="4"
 					/>
 					<span class="material-symbols-outlined" id="visibility">visibility</span>
 				</div>

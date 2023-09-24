@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,48');
 
 :root {
-	--blue: #707be0;
+	--blue: #3243db;
 	--bg-blue: #192279;
 	--darker-blue: #131e64;
 	--highlight-blue: #0b113a;
@@ -59,6 +59,7 @@ h1.logo-text {
 
 .logo-text #med {
 	background-color: var(--blue);
+	color: var(--white);
 }
 
 .logo-text #icare {
